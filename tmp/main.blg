@@ -6,11 +6,10 @@ I couldn't open style file dcu.bst
  : \bibstyle{dcu
  :              }
 I'm skipping whatever remains of this command
-I found no \citation commands---while reading file main.aux
 I found no style file---while reading file main.aux
-You've used 0 entries,
+You've used 9 entries,
             0 wiz_defined-function locations,
-            84 strings with 485 characters,
+            93 strings with 561 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0
@@ -49,4 +48,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 0
-(There were 3 error messages)
+(There were 2 error messages)
