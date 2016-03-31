@@ -7,205 +7,82 @@ will continue to be a major source of renewable power-generation technology
 \cite{iea}. Large hydropower projects have typically an average maintenance
 cost of 2\% to 2.5\% of the investment cost per kW \cite{irena}, and a major
 concern is the state of the runner's blades, which suffer cavitation and
-abrasion phenomena, leading to water flow instability, excessive vibrations and
-turbine efficiency reduction \cite{goldemberg2007energia}. Hard coating
-techniques by thermal aspersion are used to reduce the erosion of the runner's
-blade, greatly increasing its life cycle \cite{krella2011new}. 
+abrasion phenomena. The erosion can lead to water flow instability, excessive
+vibrations and turbine efficiency reduction \cite{goldemberg2007energia}, thus
+hard coating techniques by thermal aspersion are used to greatly increase the
+life cycle of runner's blades~\cite{krella2011new}.
 
-The hard coating procedure requires a robotic system due to high precision,
-speed, and the hazardous substances that are used, as propane and other gases.
-Although sufficient for blade protection, the coating also has a life
-cycle itself, thus it needs to be redone from time to time to ensure the
-blade's protection from physical phenomena.
+The use of robotics for in situ maintenance, and repair operations in
+hydropower plants could greatly improve efficiency, health and safety, while
+decreasing operational and logistics costs~\cite{hazel2012field}. The working
+conditions on hydropower turbine installations are unfriendly, the atmospheric
+conditions, high temperatures and humidity, and constrained space are
+unfavorable to human operation. Also, some tasks, as the hard coating
+procedure, requires a robotic system due to high precision, speed, and the
+usage of hazardous substances (as propane and others).
 
-\begin{comment}
-The studies also point out the potential increase
-in efficiency and productivity with robot operators, besides of the improvement
-in Health, Safety, and Environment (HSE) conditions, as robots can replace
-humans in tasks performed in unhealthy, hazardous, and confined areas
-\citep{pal}.
+In the specific case of Brazil, hydropower is the most important
+power-generation technology. To support future economic growth, Brazil has
+invested in additional hydroelectric facilities, for instance, the
+14,000-megawatt Belo Monte dam along the Xingu River~\cite{eia}, and Jirau dam
+along the Madeira river. At the latter, the number of suspended particles that
+the river carries intensifies the abrasion phenomena, thus regular maintenance
+is needed.
 
-The use of robotics in O\&G industry represents great technological challenges
-to overcome the following aspects of offshore environments \citep{chen}:
-
-\begin{enumerate}[i)]
-\item \emph{Atmospheric conditions} on offshore platforms are unfriendly, as
-hydrocarbon resources can generate explosive and toxic gases;
-\item \emph{Corrosive agents}: splashy salty water, salty air and corrosive
-chemicals;
-\item \emph{Weather} : high speed wind, rain, and hail. The relative humidity is
-up to 100\% and ambient temperature can vary between $-30^{\circ}$C to
-$50^{\circ}$C. Possibly highly radiant heat from equipment, and direct sunlight;
-\item \emph{Constrained space}: complex structures for robots such as pipes,
-flanges, tanks, and stairways.
-\end{enumerate}
-
-In the specific case of the Jirau hydroelectric dam, built on the Madeira
-river, the number of suspended particles that the river carries intensifies the
-abrasion phenomena, and Rijeza, a hard coating specialized company, identified cavitation erosion on blades, further reducing the coating life cycle.
-Therefore, Jirau hydroelectric dam needs regular maintenance, which,
-in the present situation, would require stoppage of the turbine, removing the
-blades, positioning the blades for coating, coating application, turbine assembling, and recalibration. The downtime to perform all
-maintenance can take up to two months, meaning a huge loss in power generation.
-
-EMMA is an R\&D project by Fundação Coordena\-ção de Projetos, Pesquisas e
-Estudos Tecnológicos (COPPETEC), in partnership with Rijeza company, Agência Nacional de
-Energia Elétrica (ANEEL) and Energia Sustentável do Brasil (ESBR). Its first
-stage is a technical feasibility study of a robotic system to perform
-coating by thermal spray on hydraulic turbine blades within the turbine
-environment. The project aims to significantly reduce the downtime for hard
-coating process.
-\end{comment}
-
-\begin{comment}
-The Oil \& Gas (O\&G) demand is expected to grow rapidly in the next decades
-\citep{wna} and the need to obtain resources from hostile environments will
-increase operation costs. Also, working conditions on offshore installations, such as
-unfriendly atmosphere, heavy weather, extreme temperatures, and constrained
-space are serious obstacles for O\&G companies. In order to be competitive, they
-are looking into new technologies to be able to produce marginal fields. The
-use of robotics in inspection, maintenance, and repair operations in O\&G
-facilities could greatly improve efficiency, health and safety, while
-decreasing operational and logistics costs.
-
-In the specific case of Brazil, the O\&G industry is growing. The
-recent discoveries of big oil fields in the pre-salt layer of the Brazilian
-coast, located 300 km from the shore at depths of 5000-7000 m \citep{presal},
-motivates the development of an offshore production system with high degree of
-automation.
-
-Recent studies forecast a substantial decrease in the level of human operation
-and an increase in automation on future oil fields
-\citep{skourup2009robotized}. The studies also point out the potential increase
-in efficiency and productivity with robot operators, besides of the improvement
-in Health, Safety, and Environment (HSE) conditions, as robots can replace
-humans in tasks performed in unhealthy, hazardous, and confined areas
-\citep{pal}.
-
-The use of robotics in O\&G industry represents great technological challenges
-to overcome the following aspects of offshore environments \citep{chen}:
-
-\begin{enumerate}[i)]
-\item \emph{Atmospheric conditions} on offshore platforms are unfriendly, as
-hydrocarbon resources can generate explosive and toxic gases;
-\item \emph{Corrosive agents}: splashy salty water, salty air and corrosive
-chemicals;
-\item \emph{Weather} : high speed wind, rain, and hail. The relative humidity is
-up to 100\% and ambient temperature can vary between $-30^{\circ}$C to
-$50^{\circ}$C. Possibly highly radiant heat from equipment, and direct sunlight;
-\item \emph{Constrained space}: complex structures for robots such as pipes,
-flanges, tanks, and stairways.
-\end{enumerate}
-
-Currently, the majority of the robotic systems in the O\&G industry are used for
-subsea tasks, such as mapping of the seabed, and inspection and repair of
-underwater equipment, risers and pipelines. However, recent research has focused
-on robotic applications on the topside of oil platforms to perform inspection
-and maintenance tasks, which include valve and lever manipulation, gas level
-and leakage monitoring, acoustic anomalies diagnosis, and smoke and fire
-detection.
+Currently, the majority of the robotic systems for in situ hydropower
+maintenance are used for repair tasks, such as inspection, welding, and
+grinding. 
 
 Some examples found in the literature are:
 
-The MIMROex inspection robot \citep{mimroex}, developed by the Fraunhofer
-Institute of Manufacturing Engineering and Automation (IPA), is capable of
-safely navigating in offshore environments, and autonomously executing
-inspection tasks.
+The Roboturb~\cite{roboturb} is a robotic manipulator to perform erosion
+inspection, and welding on damaged runner's blades. It is composed of six
+revolution joints and one prismatic joint coupled to a flexible rail, which may
+be shaped and then fixed to the blade surface by a passive system of suction cups.
 
-Sensabot \citep{sensabot}, a teleoperated inspection robot developed by
-Carnegie Mellon University, was designed for severe weather and atmosphere,
-being certified to operate in toxic, flammable and explosive environments. The
-protoype was capable of safely operating on an onshore facility, executing all
-its functionalities, including the level exchange through its cog rail
-elevation system.
+The Scompi~\cite{scompi} is a multipurpose manipulator, designed to
+perform repairs on \textit{Francis} type turbines, as welding and grinding. It
+is composed of five revolution joints (manipulator) and one prismatic joint
+coupled to curved rails.
 
-The SINTEF Topside Robotic System is an intelligent instrumentation system
-designed to enable onshore operators to monitor and control the platform's
-processes \citep{kyrkjebo2009robotic}.
+\textit{The Climber}~\cite{icm} is an inspection robot for wind and
+hydroelectric turbines, to perform coating removal, surface cleaning and
+coating application. It is a climbing robot with pneumatic adhesion and
+locomotion by tracks.
 
-In this paper, we present a general overview of the DORIS robot, and a detailed
-description of the embedded electronics, power supply system and software architecture.
+In this paper, we present a general overview of the EMMA robot, and a detailed
+description of the mechanics, manipulator analysis, and calibration.
 
-DORIS is an offshore inspection and monitoring robot being developed by
-COPPE/UFRJ in collaboration with Petrobras and Statoil. The robot moves through
-a rail carrying different sensors, processing sensor data \emph{in loco} or
-storing it for future analysis. The sensors can identify abnormalities
-such as intruders in restricted areas, abandoned objects, smoke, fire, and
-liquid and gas leakages. The robot has an embedded manipulator, which enables
-machinery vibration diagnosis, instruments reading, and sample taking
-\citep{cba}.
-\end{comment}
+EMMA is a robotic system to perform \textit{in situ} hydropower runner's
+blade hard coating, being developed by COPPE/UFRJ in collaboration with Agência
+Nacional de Energia Elétrica (ANEEL) and Energia Sustentável do Brasil (ESBR). The system
+is composed of an industrial manipulator that moves on a customized rail base, a
+3D laser scanner for mapping, and sensors for positioning feedback. The
+system will autonomously operate in a confined space, moves on a sloping
+and slippery environment through a rail, identify the runner's blades, calibrate
+its position, generates the path planning and performs the hard coating. The
+project aims to significantly reduce the downtime for hard coating process.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%This text is organized as follows: a general overview of the robot and its main
+%challenges are presented in Section \ref{sec:general_overview}, detailed
+%descriptions of the embedded electronics, the vehicle support system, power
+%supply system, and software architecture are taken in
+%Sections \ref{sec:electronics_overview}, \ref{sec:powersupply_overview}, and
+%\ref{sec:software} respectively.
+%In Section \ref{sec:results}, preliminary results are shown, and concluding
+%remarks are drawn in Section \ref{sec:conclusions}.
+
 \begin{comment}
-According to the world energy council, hydropower is the most flexible and
-consistent of the renewable energy resources. Brazil is the second
-country in hydropower production, and second with the highest
-consumption of hydropower with a 70.000 MW installed capacity, and 433
-hydroelectric plants in operation. Since Brazil is one of the world's richest
-countries in water resources, and the hydropower is the most dominant across
-the country, it motivates the development and investment in hydropower
-generation.
-
-In Brazil, the renovation and improvement of the built large power plants is
-estimated to result in a potential increase of 32.000 MW
-\citep{goldemberg2007energia}, a figure that can be achieved, in large part, by the maintenance of the
-hydropower turbines. These turbines are constantly exposed to abrasion and
-cavitation phenomena.
-
-The cavitation phenomenon (Fig.~\ref{fig::cavitacao}) is detailed in \cite{escaler2006detection}, which outlines their types, occurrences and
-effects in the different hydraulic turbines. This physical phenomenon can cause
-erosions in the hydraulic turbines, leading to water flow instability,
-excessive vibrations and turbine efficiency reduction.
-
-\begin{figure}[h!]	
-	\includegraphics[width=\columnwidth]{figs/intro/cavitacao2.png}
-	\caption{Jirau hydraulic turbine's blade eroded by cavitation.}
-	\label{fig::cavitacao}
-\end{figure}
-
-Hard coating techniques by thermal aspersion
-are used to reduce the erosion of the turbine's blade from cavitation or
-abrasion, thus increasing its life cycle. This solution is analogous to a paint
-that protects walls from environment exposure. The hard coating procedure is performed
-before the hydraulic turbine installation by a robotic manipulator. The
-procedure requires a robotic system due to high precision, speed, and
-the hazardous substances that are used, as propane and other gases.
-Although sufficient for blade protection, the coating also has a life
-cycle itself, thus it needs to be redone from time to time to ensure the
-blade's protection from physical phenomena.
-
-In the specific case of the Jirau hydroelectric dam, built on the Madeira
-river, the number of suspended particles that the river carries intensifies the
-abrasion phenomena, and Rijeza, a hard coating specialized company, identified cavitation erosion on blades, further reducing the coating life cycle.
-Therefore, Jirau hydroelectric dam needs regular maintenance, which,
-in the present situation, would require stoppage of the turbine, removing the
+require stoppage of the turbine, removing the
 blades, positioning the blades for coating, coating application, turbine assembling, and recalibration. The downtime to perform all
 maintenance can take up to two months, meaning a huge loss in power generation.
-
-EMMA is an R\&D project by Fundação Coordena\-ção de Projetos, Pesquisas e
-Estudos Tecnológicos (COPPETEC), in partnership with Rijeza company, Agência Nacional de
-Energia Elétrica (ANEEL) and Energia Sustentável do Brasil (ESBR). Its first
-stage is a technical feasibility study of a robotic system to perform
-coating by thermal spray on hydraulic turbine blades within the turbine
-environment. The project aims to significantly reduce the downtime for hard
-coating process.
-
-This document is divided as follows: section 2 describes, in detail, the
-problem, contextualizes the reader in the Jirau environment and
-describes the robot's tasks; section 3 surveys the state of the
-art; section 4 describes the conceptual designs for the robot and mechanical
-bases; finally, the section 5 concludes and outlines the next steps for the
-EMMA project. 
 \end{comment}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{comment}
-The importance of regular maintenance on hydraulic turbines have already been
-established (ref EMMA-SOTA), given that its power output have a near 46\%
-increase after maintenance. Providing a meaningful gain for highly dependent
-countries like Brasil and Norway.
 
 The efficiency of a hydraulic turbine is related at some extend to the hydraulic
 profile of the runner blades and its degradation is mainly due to two
@@ -226,19 +103,6 @@ de Projetos, Pesquisas e Estudos Tecnológicos (COPPETEC), in partnership with
 Rijeza company, Agência Nacional de Energia Elétrica (ANEEL) and Energia
 Sustentável do Brasil (ESBR).
 
-Despite the generic approach of this article, the bulb turbine facilities are
-different for each power plant. The reference hydroeletric power plant for the
-ideas discussed here is the UHE Jirau, near Porto Velho(Brazil - RO). The
-Madeira river, where the UHE Jirau is located, has a high concentration of
-suspended particles which entails further abrasion on the blades, it also has a
-low water level diference of 2 to 20 meter intensifing cavitation. For more
-details on the UHE Jirau please reference (EMMA SOTA), however it is important
-to recall that there are two main entry points for runner area: the top hatch
-with a 35.7 cm diameter, just above the turbine, and the bottom hatch with a 80
-cm diameter on the draft tube, 10 m away from the runner and with a 4m access
-duct from exterior ground level. But, as a top hatch is not a standard across
-other hydroeletric power plants, e.g. the UHE de Santo Antônio near UHE Jirau,
-the solutions focus on the bottom hatch.
 
 The workflow for the \textit{in situ} hardcoating can be thought as a
 sequence of 4 minor jobs:
