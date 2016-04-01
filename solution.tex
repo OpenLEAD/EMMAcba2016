@@ -5,28 +5,9 @@
 %TODO Estevão: Solucao-Rails
 %TODO Estevão: Solucao-Magnetic Base
 %TODO Estevão: Solucao-Shutter
+%TODO Renan: Solucao-Manipulator
 %TODO Renan: Solucao-Software
 %TODO Gabriel: Solucao-Software
-
-\begin{comment}
-A solução de revestimento de uma pá de turbina \textit{in situ} requer um robô
-de pequeno a médio porte, capaz de passar pelo limitado acesso da turbina. 
-No entanto, a pá da turbina é uma peça com uma grande área a ser coberta e
-nenhum manipulador comercial que atenda ao requisitos citados é capaz de
-alcançar, de uma só posição, toda a sua extensão.
-Assim, é necessário prover ao robô liberdade de posicionamento para realizar o
-revestimento em pequenas regiões da pá, por posição de base.
-
-Devido ao peso do manipulador e por questões de segurança, a sua movimentação no
-interior da turbina não pode ser uma tarefa manual. Logo, uma base mecânica deve
-ser capaz de levar o robô desde a escotilha até a posição ideal para o
-revestimento, de forma segura e precisa. O dimensionamento desta base deve levar
-em consideração todos os esforços de operação, como: o peso do sistema; as
-cargas dinâmicas de movimentação do robô e o empuxo da pistola.
-
-Foram estudados diversos conceitos para os graus de liberdade providos pela
-base mecânica. O estudo destes conceitos estão detalhados no EMMA-DETAIL.
-\end{comment}
 
 The coating solution used in industry today is to oversize the robot
 in means of its reach, such that one fixed and large base is enough to do all 
@@ -37,19 +18,76 @@ other objects but the blade in an optimal position, in a specially designed room
 Because of the small access to the interior of the turbine and the narrow space
 between the blades, this solution requires a midsize to small robot. 
 These manipulator cannot reach all the surface of the blade without moving its
-base, so an external base need to provide degrees of freedom that allow the
-manipulator to reach all the surface.
+base, so an external base need to provide degrees of freedom (DOF) that allow
+the manipulator to reach all the surface.
 A geometric and kinematic study was made to find the required positions of the
 robot's base that allow the complete coverage of the blade.
-From this study 
-
+From this, were studied several base concepts regarding to the DOF and joints of
+the base. The simpler solution in constructive terms was chosen, and consists of
+a Prismatic-Rotational-Prismatic-Prismatic (PRPP) joints.
 
 
 \subsection{Robotic Manipulator}
 
-\subsection{Rails}
+\subsection{Base}
+% 0.75 pages
+
+The robot's base comprises two rails, forming two prismatic joints. The first
+rail, or primary rail, is responsible for the transportation between the turbine
+access and the blade and it is parallel to the turbine axis. The secondary rail
+is assembled from the first rail in a direction parallel to the blade's face.
+This rails allows the robot to move along the blade and to cover a region of it
+at a time. A rotational joint is placed between the two rails and is responsible
+for the ajdustment of the angle between them.
+Because of the limited reach of the manipulator, a last prismatic joint in the
+height direction gives the robot the total reach required to cover all regions
+of the blade.
+
+The size of the turbine access limits the dimension of the parts that can get
+inside. The solution to this is to have a modular concept for the base, such
+that it is possible to enter small parts (modules) and assemble the base inside
+the turbine. It shall be easy to mount and dismount the system manually, without
+the need of special tools. 
+
+Each rail is composed of two parallel profiled rails with a four carriage setup.
+In this configuration the reaction moments of the robot's base are cancelled by
+a force couple provided by each couple of carriages and the loads are divided in
+ore components.
+
+A comercial modular profile system in aluminum is used to form the main
+structure in wich the rails are mounted. 
+The main advantages of this kind of system are a corrosion resistant and light
+structure with a large flexibility in terms of geometry and modularity so that
+it is possible to increase or decrease length, width or height of the structure
+changing few parts, add anchor arms and many other accessories quickly.
+
+Because of the constraints to access the turbine, the structure can't be
+oversized in terms of weight and geometry. So the result is a slender and ligth
+frame, such that a carefull analysis is necessary to evaluate the structural
+integrity and deformations due to the dynamic loads from the robot.
+A Finite Element Analysis (FEA) is performed to study the stresses, strains and
+resultant forces along the structure and are used to size the frame components,
+like profile size, size of the anchors and its directions and to provide rigidity to the
+base.
+
 
 \subsection{Magnetic bases}
+%0.25 page
+
+The interior of the turbine is curved and sloped. Besides that it is not
+possible to modify its surface permanently, like drilling or welding. So it is a
+complicated task to fix the base of the robot properly on the ground.
+However, almost all the surface inside is a ferromagnetic steel material, and it
+is possible to attach magnetic fixturesin it. The comercial magnetic bases are
+non-permanent magnetic equipment used in industry to hoist and transport
+materials in a plant. For this solution it is used to attach and anchor the
+structure of the base to the ground. Tests were conducted in a sample of
+surfaces in order to evaluate the load capacity of this
+equipment in the different shapes, surface finishing and curvatures that are
+found inside the turbine. The results concluded that this equipment is well
+suited for this application.
+
+
 
 \subsection{Shutter}
 
