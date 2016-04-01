@@ -5,3 +5,33 @@
 %TODO Gabriel: Results-Calibration
 %TODO Estevão: Results-Mecanica
 %TODO Renan: Results-Control
+
+%._.-._.-._.-._.-._.-._.-._.-._.-._.- Calibration ._.-._.-._.-._.-._.-._.-._.-
+
+%._.-._.-._.-._.-._.-._.-._.-._.-._.- Mechanics ._.-._.-._.-._.-._.-._.-._.-
+
+The FEA analysis of the base verifies the Von Mises stress and displacements
+along the structure slender members. The stress analysis determines the
+integrity of the base due to the maximum loads of the robot. The displacements
+determines if the structure provides a rigid base for the robot, since it is not
+allowable to have big displacements, even in the elastic region of the material.
+The maximum Von Mises stress was found for a particular case where the robot is
+in the secondary rail in a distance of $800~mm$ from the rotational joint and
+it is $5.78~MPa$, wich gives a Safety Factor of $34.6$. 
+The displacement of the structure causes a maximum tranlation of $0.47~mm$ and a
+resultant angular deflection of $0,0149^{\circ}$ in the coordinate system on
+the base of the robot.
+
+A last result from the FEA analysis is the Resultant Forces found in the end of
+each anchor arm.
+It is taken with the aim of properly size the magnetic bases capacity. So, if the
+result in the main axis direction (\textit{x} in its local coordinate
+system) of the arm is positive, the magnetic base is in compression to the
+ground.
+If the value is negative, the base is being tractioned, thus in this case, the magnetic capacity of the base needs to be
+higher than this force to mantain the coupling. The
+table~\ref{tab::forcas_ancor} shows the resultant forces in each direction,
+where \textit{y} and \textit{z} are directions orthogonal to \textit{x}.
+
+%._.-._.-._.-._.-._.-._.-._.-._.-._.- Control ._.-._.-._.-._.-._.-._.-._.-
+
