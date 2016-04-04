@@ -1,13 +1,34 @@
 \section{Solution}
 
 %2.5 pages
-%TODO Estevão: Solucao-Intro
+%TODO Renan: Solucao-Intro
 %TODO Estevão: Solucao-Rails
 %TODO Estevão: Solucao-Magnetic Base
 %TODO Estevão: Solucao-Shutter
 %TODO Renan: Solucao-Manipulator
 %TODO Renan: Solucao-Software
 %TODO Gabriel: Solucao-Software
+
+Regarding the environment constraints detailed in Sec.~\ref{problem}, the
+conceptual solution of EMMA is a mid-sized robotic manipulator with a modular
+rail typed base. As the manipulator can not fully cover the blade surface in a
+fixed position, and the robot locomotion is complex in the turbine's
+environment, a customized rail should provide extra degrees of freedom (DOF) to
+the system.
+
+Overall simulations and analysis were performed using the Open Robotics
+Automation Virtual Environment (OpenRave) for blade discretization, coating
+strategy, coating segmentation (partitioning) and base positions, manipulator
+kinematics and dynamics, and motion planning, in real-world
+\cite{diankov2008openrave}. 
+
+\begin{comment}
+Several concepts for robotic base were
+simulated and the simpler solution in constructive terms was chosen,
+consisting of a Prismatic-Rotational-Prismatic-Prismatic (PRPP) base.
+%TODO Estevâo: breve justificativa. ``Simpler'' ficou vago. Modular?
+
+
 
 The coating solution used in industry today is to oversize the robot
 in means of its reach, such that one fixed and large base is enough to do all 
@@ -25,6 +46,7 @@ robot's base that allow the complete coverage of the blade.
 From this, were studied several base concepts regarding to the DOF and joints of
 the base. The simpler solution in constructive terms was chosen, and consists of
 a Prismatic-Rotational-Prismatic-Prismatic (PRPP) joints.
+\end{comment}
 
 
 \subsection{Robotic Manipulator}
@@ -32,16 +54,15 @@ a Prismatic-Rotational-Prismatic-Prismatic (PRPP) joints.
 \subsection{Base}
 % 0.75 pages
 
-The robot's base comprises two rails, forming two prismatic joints. The first
-rail, or primary rail, is responsible for the transportation between the turbine
-access and the blade, being parallel to the turbine axis. The secondary
-rail is assembled from the first rail in a direction parallel to the blade's face.
-These rails allows the robot to move along the blade and to cover a region of it
-at a time. A rotational joint is placed between the two rails and is responsible
-for the ajdustment of the angle between them.
-Because of the limited reach of the manipulator, a last prismatic joint in the
-height direction gives the robot the total reach required to cover all regions
-of the blade.
+The robot's base comprises two rails, forming two prismatic joints. The first,
+or primary rail, is responsible for the robotic manipulator transportation
+between the hatch and the blade, being parallel to the turbine axis. The
+secondary rail is assembled from the first rail by a rotational joint for angle
+adjustment, and it is parallel to the blade's surface. These rails guarantee the
+full coating cover, as they allow the robotic manipulator movement through the
+constrained space. A third prismatic joint is placed in the secondary rail for
+height adjustment of the manipulator, as it can not reach all blade. 
+%TODO Estevão melhorar, Renan revisou até aqui
 
 The access hatch limits the size of the parts that can get
 inside. The solution to this is to have a modular concept for the base, such
