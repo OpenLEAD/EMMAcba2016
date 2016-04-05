@@ -9,22 +9,24 @@
 %._.-._.-._.-._.-._.-._.-._.-._.-._.- Calibration ._.-._.-._.-._.-._.-._.-._.-
 
 %._.-._.-._.-._.-._.-._.-._.-._.-._.- Mechanics ._.-._.-._.-._.-._.-._.-._.-
-
+%TODO Estevão: falar o programa utilizado para a análise, numero de elementos
+% finitos e parametros necessarios para reproduçao da analise
 The FEA analysis of the base verifies the Von Mises stress and displacements
-along the structure slender members. The stress analysis determines the
-integrity of the base due to the maximum loads of the robot. The displacements
-determines if the structure provides a rigid base for the robot, since it is not
-allowable to have big displacements, even in the elastic region of the material.
-The maximum Von Mises stress was found for a particular case where the robot is
-in the secondary rail in a distance of $800~mm$ from the rotational joint and
-it is $5.78~MPa$, wich gives a Safety Factor of $34.6$. 
-The displacement of the structure causes a maximum tranlation of $0.47~mm$ and a
-resultant angular deflection of $0,0149^{\circ}$ in the coordinate system on
-the base of the robot.
+along the structure's slender members. The stress analysis determines the
+integrity of the base due to the maximum loads of the robotic manipulator. The
+displacements determine if the structure provides a rigid base for the robotic
+manipulator. According to the hard coating requirements, big displacements are
+not even allowable in the elastic region of the material. %TODO Estevão: big
+% displacements é generico.
 
-%Acho que não vai caber.
-\begin{comment} 
+The maximum Von Mises stress was $5.78~MPa$, which gives a factor of safety of
+$34.6$. It was found for a particular case where the robotic manipulator is in
+the secondary rail, $800~mm$ from the rotational joint. The displacement of the
+structure causes a maximum translation of $0.47~mm$ and a angular deflection of
+$0,0149^{\circ}$ in respect to robotic manipulator base's coordinate system.
+%TODO Estevão: figura!
 
+\begin{comment}
 A last result from the FEA analysis is the Resultant Forces found in the end of
 each anchor arm.
 It is taken with the aim of properly size the magnetic bases capacity. So, if the
@@ -51,7 +53,6 @@ where \textit{y} and \textit{z} are directions orthogonal to \textit{x}.
 \captionof{table}{Forças de reação em cada ponto de ancoragem}
 \label{tab::forcas_ancor}
 \end{center}
-
 \end{comment}
 
 %._.-._.-._.-._.-._.-._.-._.-._.-._.- Control ._.-._.-._.-._.-._.-._.-._.-
