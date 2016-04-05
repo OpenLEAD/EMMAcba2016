@@ -126,32 +126,28 @@ results concluded that the magnetic fixture is sufficient for this application.
 
 \subsection{Shutter}
 
-The HVOF process requires a $40~m/min$ speed along the blade's surface, for a
-best coating quality. 
-The current industrial process uses an oversized robot that is able to
-cover the blade from side to side. In this manner, the changes in direction, and
-consequently changes in speed, occurs outside the blade's coating area.
-This permits the robot to achieve the required speed again, when back to the
-front of the surface.
-While the HVOF gun is in the outside region of the blade, changing its
-direction, it wastes the material to the environment or, most commonly to a
-shadow plate.
+To achieve a good coating quality, the HVOF process requires that the robotic
+manipulator's end-effector moves with a constant $40~m/min$ speed along the
+blade's surface. The typical path of HVOF coating is a zigzagging trajectory,
+i.e., it is a deceleration/acceleration process with direction changes. The
+\textit{ex situ} solution uses a large-sized robotic manipulator, which can
+fully cover the blade in a fixed position, and the end-effector's direction
+changes occur outside the blade's range, complying the speed in the blade's
+range. However, while deceleration/acceleration, coating material is wasted to
+the environment or, most commonly to a shadow plate.
 
-The size of the robot for the \textit{in situ} solution makes this strategy
-impossible, because the robot will be inevitably in an intern region of the blade and will
-needs to change the direction of the HVOF gun several times in these
-positions. 
-
-Thus, the solution is basically to ''shut'' the process while the arm changes
-its trajectory and open again when the required speed is achieved.
-The shutter is a system that modifies the original circuit of the gases that
-carries the coating particles to a new 2-way controlled circuit in wich there 
-is a directional valve that changes the flow path from the thermal spray gun to
-a return to tank circuit. 
-The directional valve control module have informations about the pre-programmed
-trajectory of the manipulator so that it is autonomously actuated.
-In this way, there is much less waste of material, whereas the non-used
-particles can be utilized again, and the hardcoating requirements can be met.
+The mid-sized robot for \textit{in situ} operation makes this strategy
+impossible, as, at some base positions, the robot will always be in the blade's
+range, and changing the end-effector's direction will be necessary. The proposed
+solution modifies the original circuit of the gases that carry the coating
+particles to a new 2-way controlled circuit, in wich there is a directional
+valve that changes the flow path from the thermal spray gun to return to tank
+circuit. %TODO Estevao: figura do processo
+The directional valve is autonomously actuated accordingly to the robotic
+manipulator's trajectory, i.e., the valve will ``shut'' while end-effector's
+direction changes. Therefore, the solution provides coating material savings,
+as the non-used particles are stored for future usage, and the hard coating
+speed requirement is met.
 
 
 \subsection{Software}
