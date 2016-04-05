@@ -54,58 +54,66 @@ a Prismatic-Rotational-Prismatic-Prismatic (PRPP) joints.
 \subsection{Base}
 % 0.75 pages
 
-The robot's base comprises two rails, forming two prismatic joints. The first,
-or primary rail, is responsible for the robotic manipulator transportation
-between the hatch and the blade, being parallel to the turbine axis. The
-secondary rail is assembled from the first rail by a rotational joint for angle
-adjustment, and it is parallel to the blade's surface. These rails guarantee the
-full coating cover, as they allow the robotic manipulator movement through the
-constrained space. A third prismatic joint is placed in the secondary rail for
-height adjustment of the manipulator, as it can not reach all blade. 
-%TODO Estevão melhorar, Renan revisou até aqui
+EMMA's base comprises two rails, forming two prismatic joints. The
+first, or primary rail, is parallel to the turbine axis, and it is responsible
+for the transportation of the robotic manipulator between the hatch and the
+blade. The secondary rail is is parallel to the blade's surface, and it is
+assembled from the first rail by a rotational joint for angle adjustment. A
+third prismatic joint is placed in the secondary rail for height adjustment of
+the robotic manipulator, since it can not reach all blade. These rails guarantee
+the full coating cover, as they allow the robotic manipulator movement through
+the constrained space, in a 4-DOF base, Prismatic-Rotational-Prismatic-Prismatic
+(PRPP) joints.
 
-The access hatch limits the size of the parts that can get
-inside. The solution to this is to have a modular concept for the base, such
-that it is possible to enter small parts or assemblies (modules) and mount
-the base inside the turbine. It shall be easy to assemble and disassemble the
-system manually, without the need of special tools. 
+The hatch limits the size of the rail in terms of weight and geometry, thus a
+modular concept was design, such that the small modular parts can be easily and manually assembled inside the
+turbine. The base is a modular two parallel profiled rail system %TODO Estevao:
+% referencia
+with a four carriage setup. In this configuration, the reaction moments of the
+base are cancelled by a force couple provided by each couple of carriages. The
+% and the loads are divided in ore components.
+%TODO Estevao: colocar figura
+comercial modules are aluminum structures for corrosion resistance,
+lightweight, geometric flexibility, and modularity, as it is possible to
+increase/decrease the rail length/width/height by changing few parts or adding
+anchor arms. %TODO Estevao: referencia para as propriedades do aluminio
+% (aplicacao)
 
-Each rail is composed of two parallel profiled rails with a four carriage setup.
-In this configuration the reaction moments of the robot's base are cancelled by
-a force couple provided by each couple of carriages and the loads are divided in
-ore components.
-
+\begin{comment}
 A comercial modular profile system in aluminum is used to form the main
-structure in wich the rails are mounted. 
-The main advantages of this kind of system are a corrosion resistant and light
-structure with a large flexibility in terms of geometry and modularity so that
-it is possible to increase or decrease length, width or height of the structure
-changing few parts, add anchor arms and many other accessories quickly.
+structure in wich the rails are mounted. The main advantages of this kind of
+system are a corrosion resistant and light structure with a large flexibility
+in terms of geometry and modularity so that it is possible to increase or
+decrease length, width or height of the structure changing few parts, add
+anchor arms and many other accessories quickly.
+\end{comment}
 
-Because of the constraints to access the turbine, the structure of the base
-can't be oversized in terms of weight and geometry. So the result is a slender 
-and ligth frame, such that a carefull analysis is necessary to evaluate the
-structural integrity and rigidity due to the dynamic loads from the robot.
-A Finite Element Analysis (FEA) is performed to study the stresses, strains and
-resultant forces along the structure and are used to size the frame components,
-like profile size, size of the anchors and its directions and to provide the
-greater rigidity possible to the base. The rigidity is an important parameter
-because of the precision required for the hardcoating process. If the base is
-not rigid enough, it can propagate vibrations to the end-effector of the
-arm with high amplitudes and compromise the quality of the coating.
+% Because of the constraints to access the turbine, the structure of the base
+% can't be oversized in terms of weight and geometry. So 
+The resulting base is a slender and lightweight frame, such that a careful
+analysis is necessary to evaluate the structural integrity and rigidity, in
+respect to the dynamic loads of the robotic manipulator. A Finite Element
+Analysis (FEA) was performed to study the stresses, strains and resultant forces
+along the structure. FEA is also used to size the frame components, such as
+the profile's size, and to size the anchors, its directions, and attachment to
+provide the greater base's rigidity. The rigidity is a major concern, it is
+required for the hard coating process, since a non-rigid base propagates
+vibrations to the robotic manipulator's end-effector with high amplitudes, which
+may compromise coating quality.
+%TODO Estevao: software do FEA
 
 
 \subsection{Magnetic bases}
 %0.25 page
 
-The interior of the turbine is curved and sloped. Besides that it is not
-possible to modify its surface permanently, like drilling or welding. 
-So it is a complicated task to fix the base of the system properly on the
-ground.
-However, almost all the surface of the turbine is a ferromagnetic steel
-material, and it is possible to attach magnetic fixtures on it.
-The comercials magnetic bases are non-permanent magnetic equipment used in
-industry to hoist and transport materials in a plant. 
+The draft tube and runner area are conical shape structures, curved and
+sloped. The environment modification, as wielding and drilling, should be
+avoided, thus properly fixing the base on the ground is a major challenge in
+EMMA project. The draft tube is composed of a ferromagnetic steel material,
+hence magnetic fixtures are a suitable solution for base attachment. 
+
+Comercials magnetic bases are non-permanent magnetic equipment used in industry
+to hoist and transport materials in a plant.
 For this solution it is used to attach and anchor the structure of the base to
 the ground. 
 Tests were conducted in a sample of surfaces inside the turbine in order to
