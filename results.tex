@@ -8,8 +8,19 @@
 
 % Intro
 
-% Calibration
+Simulations and experimental tests were performed to verify the proposed
+concepts. The following results were divided according to the EMMA system's
+elements introduced in Sec.~\ref{solution}. 
 
+
+\subsection{Robotic manipulator analysis}
+
+As stated in Subsec.~\ref{manipulator}, simulations for the robotic
+manipulator were implemented with OpenRave and consist of the following steps:
+blade's surface discretization; coating strategy; coating segmentation
+(partitioning) and base positions computation; kinematics and dynamics.
+
+\subsection{Base analysis}
 %TODO Estevão: falar o programa utilizado para a análise, numero de elementos
 % finitos e parametros necessarios para reproduçao da analise
 The FEA analysis of the base verifies the Von Mises stress and displacements
@@ -18,7 +29,7 @@ integrity of the base due to the maximum loads of the robotic manipulator. The
 displacements determine if the structure provides a rigid base for the robotic
 manipulator. According to the hard coating requirements, big displacements are
 not even allowable in the elastic region of the material. %TODO Estevão: big
-% displacements é generico.
+% displacements é generico. 
 
 The maximum Von Mises stress was 5.78~MPa, which gives a factor of safety of
 34.6. It was found for a particular case where the robotic manipulator is in
@@ -26,6 +37,8 @@ the secondary rail, 800~mm from the rotational joint. The displacement of the
 structure causes a maximum translation of 0.47~mm and a angular deflection of
 $0.0149^{\circ}$ in respect to robotic manipulator base's coordinate system.
 %TODO Estevão: figura!
+
+%TODO Estevão: Testes in situ com a base magnética
 
 \begin{comment}
 A last result from the FEA analysis is the Resultant Forces found in the end of
@@ -56,5 +69,5 @@ where \textit{y} and \textit{z} are directions orthogonal to \textit{x}.
 \end{center}
 \end{comment}
 
-% Kinematics
-
+\subsection{Calibration analysis}
+%TODO Abelha: falar como funcionou o algoritmo, e testes do mapeamento in situ
