@@ -16,9 +16,19 @@ elements introduced in Sec.~\ref{solution}.
 \subsection{Robotic manipulator analysis}
 
 As stated in Subsec.~\ref{manipulator}, simulations for the robotic
-manipulator were implemented with OpenRave and consist of the following steps:
+manipulator were implemented with OpenRave, and consist of the following steps:
 blade's surface discretization; coating strategy; coating segmentation
 (partitioning) and base positions computation; kinematics and dynamics.
+
+The blade's surface discretization uses the first part of the grasping algorithm
+of OpenRave. It uniformly samples the object to determine where to
+the coating directions should be. However, sampling the actual geometric surface
+can lead to unwanted results due to possible concavities. A simpler approach is
+to take the bounding box of the blade and sample its surface uniformly. Once
+the surface of the box is sampled, the intersection of the blade and a ray
+originating from each point going inward is taken. The normal of the blade's
+surface from each of these intersection points is taken to be the coating
+direction. %TODO Renan: FIGURA
 
 \subsection{Base analysis}
 %TODO Estevão: falar o programa utilizado para a análise, numero de elementos
