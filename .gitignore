@@ -1,6 +1,8 @@
 /EMMAcba.pdf
 /EMMAcba.synctex.gz
 /tmp/
+tmp/*
+/tmp/*
 *.aux
 *.glo
 *.idx
