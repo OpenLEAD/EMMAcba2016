@@ -1,36 +1,74 @@
 \section{Solution}
 
 %2.5 pages
-%TODO Renan: Solucao-Intro
-%TODO Estevão: Solucao-Rails
-%TODO Estevão: Solucao-Magnetic Base
-%TODO Estevão: Solucao-Shutter
-%TODO Renan: Solucao-Manipulator
-%TODO Renan: Solucao-Software
-%TODO Gabriel: Solucao-Software
+%Renan: Solucao-Intro
+%Renan: Solucao-Manipulator
+%Estevão: Solucao-Rails (Renan revision)
+%Estevão/Renan: Solucao-Shutter
+%TODO Gabriel: Solucao-Calibration
 
 Regarding the environment constraints detailed in Sec.~\ref{problem}, the
 conceptual solution of EMMA is a mid-sized robotic manipulator with a modular
-rail typed base. As the manipulator can not fully cover the blade surface in a
+rail base. As the manipulator can not fully cover the blade surface in a
 fixed position, and the robot locomotion is complex in the turbine's
 environment, a customized rail should provide extra degrees of freedom (DOF) to
-the system.
-
-Overall simulations and analysis were performed using the Open Robotics
-Automation Virtual Environment (OpenRave) for blade discretization, coating
-strategy, coating segmentation (partitioning) and base positions, manipulator
-kinematics and dynamics, and motion planning, in real-world
-\cite{diankov2008openrave}. 
-
-%TODO Estevâo: inserir aqui a introduçao das subseçoes. O que vai ser dito
-% adiante? Não em tópicos, mas dentro do parágrafo anterior.
+the system. EMMA aims to be a generic solution to bulb turbines, modular, and
+versatile. It is an autonomous system for hard coating applications, thus
+the following system's elements will be presented: the robotic manipulator; the
+customized base; and the robot calibration.
 
 
 \subsection{Robotic Manipulator}
-Trying to propose an \textit{in situ} hard coating solution similar to the
-\textit{ex situ} solution is a natural path. The first step of EMMA's
-development was the industrial robotic manipulators research
+Trying to propose an \textit{in situ} turbine hard coating solution similar to
+the \textit{ex situ} solution is a natural thought. Therefore, the first step of
+EMMA's development was the research for industrial robotic manipulators. The
+compilation of the HVOF coating requirements and environment constraints demands
+a mid-sized robotic manipulator, as a large-sized one would not be able to move
+inside the confined space and would not fit at the back side of the
+runner's blade, and a small-sized one would not have the required payload and
+speed for the process. In EMMA's project, the robotic manipulator will be
+responsible for the coating application, precision, tool handling.
 
+A market survey was conducted to determine the most suitable industrial robotic
+manipulator for the application. A 3D CAD model of the hydropower turbine was
+built, and overall simulations and analysis were performed using the Open
+Robotics Automation Virtual Environment (OpenRave) \cite{diankov2008openrave}.
+The simulations involve runner's blade discretization, coating strategy,
+coating segmentation (partitioning) and base positions computation for full
+blade cover, and robotic manipulator kinematics and dynamics. Among the
+analyzed mid-sized robotic manipulators, the Yaskawa Motoman MH12 robot was
+chosen due to its large workspace and versatility.
+
+To achieve a good coating quality, the HVOF process requires that the robotic
+manipulator's end-effector moves with a constant 40~m/min speed along the
+blade's surface. The typical path of HVOF coating is a zigzagging trajectory,
+i.e., it is a deceleration/acceleration process with direction changes. As the
+\textit{ex situ} solution uses a large-sized robotic manipulator, the
+end-effector's direction changes occur outside the blade's range, complying the
+speed requirement in the blade's range. However, while deceleration or
+acceleration, coating material is wasted to the environment or, most commonly
+to a shadow plate.
+
+The mid-sized robot for \textit{in situ} operation makes this strategy
+impossible, as, at some base positions, the robot will always be in the blade's
+range. The proposed solution modifies the original circuit of the gases that
+carry the coating particles to a new 2-way controlled circuit, in wich there is a directional
+valve that changes the flow path from the thermal spray gun to return to tank
+circuit. %TODO Estevao: figura do processo
+The directional valve is autonomously actuated accordingly to the robotic
+manipulator's trajectory, i.e., the valve will ``shut'' while end-effector's
+direction changes. Therefore, the solution provides coating material savings,
+as the non-used particles are stored for future usage, and the hard coating
+speed requirement is met.
+
+Despite being able to coat approximately 50\% of the blade on a fixed
+position, kinematic and dynamic analysis show that the MH12 robot can not fully
+cover it vertically or horizontally, demanding 2-DOF along the blade's surface.
+The coating strategy and blade coating partitioning reveal that the blade's top
+extremities require an specific base position, reachable
+with a primary rail between the blades. Therefore, the MH12 robot will require
+at least four positions along the blade and one position on a primary
+rail, between blades. 
 
 \subsection{Base}
 % 0.75 pages
@@ -41,14 +79,15 @@ for the transportation of the robotic manipulator between the hatch and the
 blade. The secondary rail is is parallel to the blade's surface, and it is
 assembled from the first rail by a rotational joint for angle adjustment. A
 third prismatic joint is placed in the secondary rail for height adjustment of
-the robotic manipulator, since it can not reach all blade. These rails guarantee
-the full coating cover, as they allow the robotic manipulator movement through
-the constrained space, in a 4-DOF base, Prismatic-Rotational-Prismatic-Prismatic
-(PRPP) joints.
+the robotic manipulator. These rails guarantee the full coating cover, as they
+allow the robotic manipulator movement in the confined space, by a 4-DOF
+base, Prismatic-Rotational-Prismatic-Prismatic (PRPP) joints. %TODO Estevao:
+% colocar figura
 
 The hatch limits the size of the rail in terms of weight and geometry, thus a
-modular concept was design, such that the small modular parts can be easily and manually assembled inside the
-turbine. The base is a modular two parallel profiled rail system %TODO Estevao:
+modular concept was design, such that the small modular parts can be easily and
+manually assembled inside the turbine. The base is a modular two parallel
+profiled rail system %TODO Estevao:
 % referencia
 with a four carriage setup. In this configuration, the reaction moments of the
 base are cancelled by a force couple provided by each couple of carriages. The
@@ -70,10 +109,10 @@ provide the greater base's rigidity. The rigidity is a major concern, it is
 required for the hard coating process, since a non-rigid base propagates
 vibrations to the robotic manipulator's end-effector with high amplitudes, which
 may compromise coating quality.
-%TODO Estevao: software do FEA
+%TODO Estevao: qual o software do FEA?
 
 
-\subsection{Magnetic bases}
+%\subsection{Magnetic bases}
 %0.25 page
 
 The draft tube and runner area are conical shape structures, curved and
@@ -90,31 +129,6 @@ results concluded that the magnetic fixture is sufficient for this application.
 %TODO Estevao: resumir o teste que foi feito em uma frase dentro deste
 % parágrafo. Colocar qual o dispositivo selecionado.
 
-
-\subsection{Shutter}
-
-To achieve a good coating quality, the HVOF process requires that the robotic
-manipulator's end-effector moves with a constant $40~m/min$ speed along the
-blade's surface. The typical path of HVOF coating is a zigzagging trajectory,
-i.e., it is a deceleration/acceleration process with direction changes. The
-\textit{ex situ} solution uses a large-sized robotic manipulator, which can
-fully cover the blade in a fixed position, and the end-effector's direction
-changes occur outside the blade's range, complying the speed in the blade's
-range. However, while deceleration/acceleration, coating material is wasted to
-the environment or, most commonly to a shadow plate.
-
-The mid-sized robot for \textit{in situ} operation makes this strategy
-impossible, as, at some base positions, the robot will always be in the blade's
-range, and changing the end-effector's direction will be necessary. The proposed
-solution modifies the original circuit of the gases that carry the coating
-particles to a new 2-way controlled circuit, in wich there is a directional
-valve that changes the flow path from the thermal spray gun to return to tank
-circuit. %TODO Estevao: figura do processo
-The directional valve is autonomously actuated accordingly to the robotic
-manipulator's trajectory, i.e., the valve will ``shut'' while end-effector's
-direction changes. Therefore, the solution provides coating material savings,
-as the non-used particles are stored for future usage, and the hard coating
-speed requirement is met.
-
-
-\subsection{Software}
+\subsection{Calibration}
+%TODO Abelha: o que é mapear e calibrar no contexto do EMMA? Como é feita a
+% calibração e o mapeamento, quais os sensores? quais os algoritmos?
