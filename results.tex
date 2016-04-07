@@ -18,17 +18,80 @@ elements introduced in Sec.~\ref{solution}.
 As stated in Subsec.~\ref{manipulator}, simulations for the robotic
 manipulator were implemented with OpenRave, and consist of the following steps:
 blade's surface discretization; coating strategy; coating segmentation
-(partitioning) and base positions computation; kinematics and dynamics.
+(partitioning) and base positions computation; kinematics, dynamics and
+manipulability.
 
-The blade's surface discretization uses the first part of the grasping algorithm
-of OpenRave. It uniformly samples the object to determine where to
-the coating directions should be. However, sampling the actual geometric surface
-can lead to unwanted results due to possible concavities. A simpler approach is
-to take the bounding box of the blade and sample its surface uniformly. Once
-the surface of the box is sampled, the intersection of the blade and a ray
+The blade's surface discretization is an uniform sampling of the blade to
+determine where to the coating directions should be. However, sampling the
+actual geometric surface can lead to unwanted results due to possible
+concavities. A simpler approach is to take the bounding box of the blade and
+sample its surface uniformly (\textit{axis-aligned bounding box}). Once the
+surface of the box is sampled, the intersection of the blade and a ray
 originating from each point going inward is taken. The normal of the blade's
 surface from each of these intersection points is taken to be the coating
-direction. %TODO Renan: FIGURA
+direction. As an uniform sampling of the box does not mean an uniform sampling
+of the blade, the box is oversampled and a 50~mm filter is applied to the
+resulting sampling of the blade, by a multidimensional search key with k-d tree.
+The result is an uniformely sampled blade, and the samples are spaced
+50~mm from each other. These samples are translated 230~mm in respect with their
+normal vectors, collision checks with the environment are made, and the
+feasible samples are named \textit{coating samples}.%TODO Renan: FIGURA
+
+The coating segmentation and base positions computation is to calculate the
+required robotic manipulator's base positions to process all the \textit{coating
+samples} with angle and distance tolerances. It is a brute force search, in
+which the positions are uniformly sampled in the turbine's confined space (green dots
+in Fig.). For each position, inverse kinematics (IKFast) are computed to
+determine the robotic manipulator's joint parameters that provide the desired positions and
+orientations of the end-effector. FIG X and Y show examples
+of the algorithm, where black dots are coated points for the base positions in
+green. At the end of the Alg.~\ref{alg:strategy}, the reachable samples are
+in the Matrix~\ref{algvar:reachable}, which relates coating samples with base
+positions, thus it is possible to create a coating strategy and to select the
+simplest base positions. The result is the minimum required positions for the
+robotic manipulator's base.
+%TODO Renan: figura
+
+\begin{algorithm}
+\caption{Coating strategy}
+\label{alg:strategy}
+\begin{algorithmic}[1]
+\ForAll{Base positions} 
+		\ForAll{\textit{Coating samples}}
+			\State Joints = IKFast(sample)
+			\If{not Joints} 
+				\State Joints = IKFast(sample,tol)
+			\EndIf
+			\If{Joints} 
+				\State $\textrm{Reachable}[\textrm{pos}] += [\textrm{sample}]$
+				\label{algvar:reachable}
+			\EndIf
+		\EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+The kinematic approach described above is not enough to ensure that the robot
+will reach the \textit{coating samples}. Maximum accelerations, decelerations,
+torques, and jacobian singularities should be investigated and compared to the robotic
+manipulator's specifications. The Newton-Euler method
+\cite{sciavicco2000differential} was adopted for torque computation: $\tau =
+M(q)\alpha + C(q,\omega)\omega + G(q)$, where $\tau$ is the joints' torques,
+$M$ is the matrix of links' masses and moments of inertia, $\alpha$ is the
+joints' accelerations, $q$ is the joints' angles, $\omega$ is the joints'
+velocities, $C$ is the Coriolis matrix, and $G$ is the gravity vector.
+
+In the dynamic approach, $M$ was estimated by the robotic manipulator's CAD
+model. The angular accelerations are derived by differential kinematics:
+$\alpha=J^+(a-\omega^TH\omega)$, where $H$ is the Hessian matrix
+\cite{hourtash2005kinematic}, and $J$ is the Jacobian matrix. Therefore,
+torques can be analytically estimated with the inverse dynamics in OpenRave.
+Comparing estimated torques with the technical specifications, dynamics
+simulations's results showed that the robotic manipulator should be placed at,
+at least, 1400~mm distance from the blade's surface. Placing the robot nearer
+would enhance the robotic manipulator's workspace, but it would increase the
+torques also, above the technical specifications. Fig. shows joints' torques in
+a color gradient way. %TODO Renan: FIGURA
 
 \subsection{Base analysis}
 %TODO Estevão: falar o programa utilizado para a análise, numero de elementos
