@@ -35,7 +35,17 @@ resulting sampling of the blade, by a multidimensional search key with k-d tree.
 The result is an uniformely sampled blade, and the samples are spaced
 50~mm from each other. These samples are translated 230~mm in respect with their
 normal vectors, collision checks with the environment are made, and the
-feasible samples are named \textit{coating samples}.%TODO Renan: FIGURA
+feasible samples are named \textit{coating samples}.
+Fig.~\ref{fig:discretization} shows blade's discretization and the
+\textit{coating samples}. 
+
+\begin{figure}
+	\centering
+	\subfigure{\includegraphics[width=0.47\columnwidth]{figs/results//blade_grid1.png}}\quad
+	\subfigure{\includegraphics[width=0.47\columnwidth]{figs/results//blade_grid2.png}}
+    \label{fig:discretization}
+    \caption{Blade discretization and \textit{coating samples} in red}
+\end{figure}
 
 The coating segmentation and base positions computation is to calculate the
 required robotic manipulator's base positions to process all the \textit{coating
@@ -43,14 +53,22 @@ samples} with angle and distance tolerances. It is a brute force search, in
 which the positions are uniformly sampled in the turbine's confined space (green dots
 in Fig.). For each position, inverse kinematics (IKFast) are computed to
 determine the robotic manipulator's joint parameters that provide the desired positions and
-orientations of the end-effector. FIG X and Y show examples
-of the algorithm, where black dots are coated points for the base positions in
-green. At the end of the Alg.~\ref{alg:strategy}, the reachable samples are
-in the Matrix~\ref{algvar:reachable}, which relates coating samples with base
+orientations of the end-effector. Fig.~\ref{fig:coating} shows examples
+of the algorithm, where black dots are coated points and blue dots are coated
+points with angle tolerance.
+At the end of the Alg.~\ref{alg:strategy}, the reachable samples are in the Matrix~\ref{algvar:reachable}, which relates coating samples with base
 positions, thus it is possible to create a coating strategy and to select the
 simplest base positions. The result is the minimum required positions for the
 robotic manipulator's base.
 %TODO Renan: figura
+
+\begin{figure}
+	\centering
+	\subfigure{\includegraphics[width=0.47\columnwidth]{figs/results/mh12_coating1.png}}\quad
+	\subfigure{\includegraphics[width=0.47\columnwidth]{figs/results/mh12_coating2.png}}
+    \label{fig:coating}
+    \caption{Robotic manipulator coating samples.}
+\end{figure}
 
 \begin{algorithm}
 \caption{Coating strategy}
@@ -84,8 +102,9 @@ velocities, $C$ is the Coriolis matrix, and $G$ is the gravity vector.
 In the dynamic approach, $M$ was estimated by the robotic manipulator's CAD
 model. The angular accelerations are derived by differential kinematics:
 $\alpha=J^+(a-\omega^TH\omega)$, where $H$ is the Hessian matrix
-\cite{hourtash2005kinematic}, and $J$ is the Jacobian matrix. Therefore,
-torques can be analytically estimated with the inverse dynamics in OpenRave.
+\cite{hourtash2005kinematic}, $a=\ddot{X}$ is the linear accelerations, and $J$
+is the Jacobian matrix.
+Therefore, torques can be analytically estimated with the inverse dynamics in OpenRave.
 Comparing estimated torques with the technical specifications, dynamics
 simulations's results showed that the robotic manipulator should be placed at,
 at least, 1400~mm distance from the blade's surface. Placing the robot nearer
