@@ -50,17 +50,16 @@ Fig.~\ref{fig:discretization} shows blade's discretization and the
 The coating segmentation and base positions computation is to calculate the
 required robotic manipulator's base positions to process all the \textit{coating
 samples} with angle and distance tolerances. It is a brute force search, in
-which the positions are uniformly sampled in the turbine's confined space (green dots
-in Fig.). For each position, inverse kinematics (IKFast) are computed to
-determine the robotic manipulator's joint parameters that provide the desired positions and
-orientations of the end-effector. Fig.~\ref{fig:coating} shows examples
-of the algorithm, where black dots are coated points and blue dots are coated
-points with angle tolerance.
-At the end of the Alg.~\ref{alg:strategy}, the reachable samples are in the Matrix~\ref{algvar:reachable}, which relates coating samples with base
-positions, thus it is possible to create a coating strategy and to select the
-simplest base positions. The result is the minimum required positions for the
-robotic manipulator's base.
-%TODO Renan: figura
+which the positions are uniformly sampled in the turbine's confined space. For
+each position, inverse kinematics (IKFast) are computed to determine the
+robotic manipulator's joint parameters that provide the desired positions and
+orientations of the end-effector. Fig.~\ref{fig:coating} shows examples of the
+algorithm, where black dots are coated points and blue dots are coated points
+with angle tolerance. At the end of the Alg.~\ref{alg:strategy}, the reachable
+samples are in the Matrix~\ref{algvar:reachable}, which relates coating samples
+with base positions, thus it is possible to create a coating strategy and to
+select the simplest base positions. The result is the minimum required
+positions for the robotic manipulator's base.
 
 \begin{figure}
 	\centering
@@ -103,14 +102,24 @@ In the dynamic approach, $M$ was estimated by the robotic manipulator's CAD
 model. The angular accelerations are derived by differential kinematics:
 $\alpha=J^+(a-\omega^TH\omega)$, where $H$ is the Hessian matrix
 \cite{hourtash2005kinematic}, $a=\ddot{X}$ is the linear accelerations, and $J$
-is the Jacobian matrix.
-Therefore, torques can be analytically estimated with the inverse dynamics in OpenRave.
-Comparing estimated torques with the technical specifications, dynamics
-simulations's results showed that the robotic manipulator should be placed at,
-at least, 1400~mm distance from the blade's surface. Placing the robot nearer
-would enhance the robotic manipulator's workspace, but it would increase the
-torques also, above the technical specifications. Fig. shows joints' torques in
-a color gradient way. %TODO Renan: FIGURA
+is the Jacobian matrix. Therefore, torques can be analytically estimated with
+the inverse dynamics in OpenRave. Comparing estimated torques with the technical
+specifications, dynamics simulations's results showed that the robotic
+manipulator should be placed at, at least, 1400~mm distance from the blade's
+surface. Placing the robot nearer would enhance the robotic manipulator's
+workspace, but it would increase the torques also, above the technical
+specifications. Fig.~\ref{fig:torques} shows joints' torques for blades's
+\textit{coating samples} in a color gradient way, where red dots represents
+small magnitudes and blue dots large magnitudes. The Fig.~\ref{fig:torques} is
+an example of the robotic manipulator in a close range, 900~mm distance from the
+blade.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.5\columnwidth]{figs/results/manipulability_colorgradient.png}
+    \label{fig:torques}
+    \caption{Robotic manipulator joints' torques in color gradient.}
+\end{figure}
 
 \subsection{Base analysis}
 %TODO Estevão: falar o programa utilizado para a análise, numero de elementos
@@ -127,7 +136,7 @@ The maximum Von Mises stress was 5.78~MPa, which gives a factor of safety of
 34.6. It was found for a particular case where the robotic manipulator is in
 the secondary rail, 800~mm from the rotational joint. The displacement of the
 structure causes a maximum translation of 0.47~mm and a angular deflection of
-$0.0149^{\circ}$ in respect to robotic manipulator base's coordinate system.
+$0.0149^{\circ}$ in respect to robotic manipulator base's coordinate system. 
 %TODO Estevão: figura!
 
 %TODO Estevão: Testes in situ com a base magnética
