@@ -129,16 +129,26 @@ results concluded that the magnetic fixture is sufficient for this application.
 In opposition to \textit{ex situ} operations, in which the relative position
 between the robot and the blade to be coated is fixed, neither the placement of
 the robot nor the positioning of the blade can be considered as known.
-Therefore, in EMMA's context, calibrating the system is identify the robot
+Therefore, in EMMA's context, calibrating the system is identifing the robot
 and the blade and estimate its poses in respect to the environment. To gather
 tridimensional information about the turbine's environment, a laser scanner is
-placed inside the hidraulic circuit and the pose estimation is divided in:
+placed inside the hydraulic circuit and the pose estimation is divided in:
 localization of the robot, and localization of the blade.
  
 The attachment of markers on the manipulator or its base can be performed with
 precision and repeatability, thus reflective spheres were choosen to serve
 as reference in the process of localization of the manipulator in respect to the
-environment. 
+environment. These spheres are indetified inside the point cloud by a 3D Hough
+transform method based on the work of \cite{camurri20143d}. The 3D Hough
+transform, as its two dimensional counterpart, is a search on the (discretized)
+parametric space of the object. A sphere has a four dimensional parameter space, tree for
+the position of its center and one for its radius. For each point on the point
+cloud, it is assined a collection of points on the discretized parametric space
+(corresponding to the viable spheres passing through that point). Those points
+of the discretized parametric space which have a great number of point assined
+to are probable spheres. There might arise issues on the size of the parameter
+space, but it is reduced by previous knowledge on the expected radius of the
+spheres and viable region for the robot inside the enviroment.
 
 The pose estimation of the blade can not be assisted with the introduction of
 markers, and the localization process must rely only on the intrinsec properties
