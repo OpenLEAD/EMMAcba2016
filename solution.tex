@@ -31,13 +31,15 @@ responsible for the coating application, precision, and tool handling.
 
 A market survey was conducted to determine the most suitable industrial robotic
 manipulator for the application. A 3D CAD model of the hydropower turbine was
-built, and overall simulations and analysis were performed using the Open
+built, and overall simu\-lations and analysis were performed using the Open
 Robotics Automation Virtual Environment (OpenRave) \cite{diankov2008openrave}.
 The simulations involve runner's blade discretization, coating strategy,
 coating segmentation (partitioning) and base positions computation for full
 blade cover, and robotic manipulator kinematics and dynamics. Among the
-analyzed mid-sized robotic manipulators, the Yaskawa Motoman MH12 robot was
-chosen due to its large workspace and versatility.
+analyzed mid-sized robotic manipulators, the Yaskawa Motoman MH12\raisebox{1ex}{\textregistered}
+robot was chosen due to its large%TODO satisfartory or large enough (large é
+% relativo)
+ workspace and versatility.
 
 To achieve a good coating quality, the HVOF process requires that the robotic
 manipulator's end-effector moves with a constant 40~m/min speed along the
@@ -125,5 +127,29 @@ results concluded that the magnetic fixture is sufficient for this application.
 % parágrafo. Colocar qual o dispositivo selecionado.
 
 \subsection{Calibration}
+
+In opposition to \textit{ex situ} operations, in which the relative position
+between the robot and the blade to be coated is fixed, neither the placement of
+the robot nor the positioning of the blade can be considered known. Therefore,
+it is necessary to identify this interest elements and estimate their pose in
+respect to the environment. In order to gather
+tridimensional information about the turbine's environment, a laserscanner is
+placed inside the hidraulic circuit and the pose estimation is
+divided in: localization of the robot and the blade.
+ 
+The attachment of markers on the manipulator or its base can be performed with
+precision and repeteability, therefore reflective spheres were choosen to serve
+as reference in the process of localization of the manipulator in respect to the
+environment.
+
+The pose estimation of the blade, in the other hand, cannot be assisted with the
+introduction of markers and the localization process must rely only on the
+intrinsec properties of the blade's surface geometry. As proposed in
+\cite{Tombari2010a}, a point cloud model of the blade is compared to the point
+cloud of scene aquired by the laser sensor. A subset of points in each point
+cloud is enhaced with a local description of its local neighborhood. Given the
+sets of features, it is possible to determine the correspondence between the two
+sets. If enough correspondences are found in the scene, above a threshold, the
+blade is identified and the position is determined by the correspondences.	
 %TODO Abelha: o que é mapear e calibrar no contexto do EMMA? Como é feita a
 % calibração e o mapeamento, quais os sensores? quais os algoritmos?
