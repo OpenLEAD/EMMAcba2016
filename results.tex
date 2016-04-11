@@ -143,4 +143,30 @@ $0.0149^{\circ}$ in respect to robotic manipulator base's coordinate system.
 
 
 \subsection{Calibration analysis}
+
+Due to the large logistical complexity and the need for availability of
+dry access to a turbine, the possibility to explore simulated data, which are
+consistent and represent effectively the features found in the actual scenario
+of operation, is indispensable. In order to simulate the environment inside the
+turbine, as well the robot and the blade, it was used the toolbox Blensor
+\cite{Gschwandtner11b} and the respective CAD Models. The model blade, however, needed
+to be gathered \textit{in situ} using the laser sensor, for a better
+representantion of the actual hidraulic profile.
+
+The laser sensor was modeled following the technical specifications provided by
+the manufacturer and different scenarios were generated from several positions
+of the simulated sensor. The algorithm was able to localize the position of the
+blade with respect to the coordinate system situated in the origin of the
+laserscanner, even with the presence of occlusion due the presence of the
+manipulator. As can be seen in the picture \ref{fig::calibration}, 
+the left yellow blade is the reference model and each green line represent one
+of the correspondences found between the model and the scene. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.95\columnwidth]{figs/results/sim_mh12_sp}
+    \label{fig:torques}
+    \caption{Robotic manipulator joints' torques in color gradient.}
+\end{figure}
+
 %TODO Abelha: falar como funcionou o algoritmo, e testes do mapeamento in situ
