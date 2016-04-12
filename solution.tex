@@ -41,7 +41,7 @@ i.e., it is a deceleration and acceleration process with direction changes. As
 the \textit{ex situ} solution uses a large-sized robotic manipulator, the
 end-effector's direction changes occur outside the blade's range, complying the
 speed requirement in the blade's range. However, while deceleration or
-acceleration, coating material is wasted to the environment or, most commonly
+acceleration, coating material is wasted to the environment or, most commonly,
 to a shadow plate.
 
 The mid-sized robot for \textit{in situ} operation makes this strategy
@@ -49,12 +49,11 @@ impossible, as, at some base positions, the robot will always be in the blade's
 range. The proposed solution modifies the original circuit of the gases that
 carry the coating particles to a new 2-way controlled circuit, in wich there is a directional
 valve that changes the flow path from the thermal spray gun to return to tank
-circuit. %TODO Estevao: figura do processo
-The directional valve is autonomously actuated accordingly to the robotic
-manipulator's trajectory, i.e., the valve will ``shut'' while end-effector's
-direction changes. Therefore, the solution provides coating material savings,
-as the non-used particles are stored for future usage, and the hard coating
-speed requirement is met.
+circuit. The directional valve is autonomously actuated accordingly to the robotic
+manipulator's trajectory, i.e., the valve will ``shut'' while end-effector
+changes its direction. Therefore, the solution provides coating material
+savings, as the non-used particles are stored for future usage, and the hard
+coating speed requirement is met.
 
 % \begin{figure}[h!]
 %    \centering
@@ -64,9 +63,9 @@ speed requirement is met.
 % \end{figure}
 
 Despite being able to coat approximately 50\% of the blade on a fixed
-position, kinematic and dynamic analysis show that the MH12 robot can not fully
-cover it vertically or horizontally, demanding 2-DOF along the blade's surface.
-The coating strategy and blade coating partitioning reveal that the blade's top
+position, kinematic and dynamic analysis show that the MH12 robot cannot fully
+cover it vertically or horizontally, demanding extra 2-DOF along the blade's
+surface. The coating strategy reveals that the blade's top
 extremities require an specific base position, reachable
 with a primary rail between the blades. Therefore, the MH12 robot will require
 at least four positions along the blade and one position on a primary
@@ -75,33 +74,35 @@ rail, between blades.
 \subsection{Base}
 % 0.75 pages
 
-EMMA's base comprises two rails, forming two prismatic joints. The
+EMMA's base comprises two rails, forming two prismatic joints (P). The
 first, or primary rail, is parallel to the turbine axis, and it is responsible
-for the transportation of the robotic manipulator between the hatch and the
-blade. The secondary rail is is parallel to the blade's surface, and it is
-assembled from the first rail by a rotational joint for angle adjustment. A
-third prismatic joint is placed in the secondary rail for height adjustment of
-the robotic manipulator. These rails guarantee the full coating cover, as they
-allow the robotic manipulator movement in the confined space, by a 4-DOF
-base, Prismatic-Rotational-Prismatic-Prismatic (PRPP) joints. 
-%TODO Estevao: colocar figura
+for the transportation of the robotic manipulator from hatch to blade. The
+secondary rail is parallel to the blade's surface, and it is assembled from the
+first rail by a rotational joint (R). A third prismatic joint
+is placed in the secondary rail for height adjustment of the robotic
+manipulator. These rails guarantee the full coating, as they allow the
+robotic manipulator movement in the confined space by a 4-DOF base, PRPP joints.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.8\columnwidth]{figs/mecanica/EMMA_Base_Secundaria_01.PNG}
+    \caption{Customized base: primary and secondary rails.}
+    \label{fig:base}
+\end{figure}
 
 The hatch limits the size of the rail in terms of weight and geometry, thus a
 modular concept was design, such that the small modular parts can be easily and
 manually assembled inside the turbine. The base is a modular two parallel
-profiled rail system %TODO Estevao: colocar referencia
+profiled rail  %TODO Estevao: colocar referencia
 with a four carriage setup. In this configuration, the reaction moments of the
 base are cancelled by a force couple provided by each couple of carriages. The
-% and the loads are divided in ore components.
-%TODO Estevao: colocar figura
 commercial modules are aluminum structures for corrosion resistance,
 lightweight, geometric flexibility, and modularity, as it is possible to
 increase/decrease the rail length/width/height by changing few parts or adding
-anchor arms. %TODO Estevao: referencia para as propriedades do aluminio
-% (aplicacao)
+anchor arms.
 
 The resulting base is a slender and lightweight frame, such that a careful
-analysis is necessary to evaluate the structural integrity and rigidity, in
+analysis is necessary to evaluate the structural integrity and rigidity in
 respect to the dynamic loads of the robotic manipulator. A Finite Element
 Analysis (FEA) was performed to study the stresses, strains and resultant forces
 along the structure. FEA is also used to size the frame components, such as
@@ -110,7 +111,6 @@ provide the greater base's rigidity. The rigidity is a major concern, it is
 required for the hard coating process, since a non-rigid base propagates
 vibrations to the robotic manipulator's end-effector with high amplitudes, which
 may compromise coating quality.
-%TODO Estevao: qual o software do FEA?
 
 The draft tube and runner area are conical shape structures, curved and
 sloped. The environment modification, as wielding and drilling, should be
@@ -121,10 +121,9 @@ hence magnetic fixtures may be suitable for base attachment.
 Common magnetic fixture products are temporary magnetic equipments used to hoist
 and transport materials in an industrial plant. In EMMA, it is used to attach
 and anchor the rail's modules to the ground. Field tests were conducted in the
-draft tube for payload evaluation, at different equipment's orientations. The
-results concluded that the magnetic fixture is sufficient for this application.
-%TODO Estevao: resumir o teste que foi feito em uma frase dentro deste
-% parágrafo. Colocar qual o dispositivo selecionado.
+draft tube for payload evaluation, at different equipment's orientations.
+Field tests and simulations results show that 900~Kgf magnetic fixture
+is sufficient for this application.
 
 \subsection{Calibration}
 
