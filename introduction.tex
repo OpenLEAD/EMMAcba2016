@@ -2,11 +2,10 @@
 %RENAN - 1 pag
 
 Hydropower has an important share in the global electricity production, and
-will continue to be a major source of renewable power-generation technology
-\cite{iea}. Large hydropower projects have typically an ave\-rage maintenance
-cost of 2\% to 2.5\% of the investment cost per kW \cite{irena}, and a major
-concern is the state of the runner's blades, which suffer cavitation and
-abrasion phenomena. The erosion can lead to water flow instability, excessive
+will continue to be a major source of renewable power-generation \cite{iea}.
+Large hydropower projects have typically an ave\-rage maintenance cost of 2\%
+to 2.5\% of the investment cost per kW \cite{irena}. A major maintenance concern
+is the state of the runner's blades, which suffer cavitation and abrasion phenomena. The erosion can lead to water flow instability, excessive
 vibrations and turbine efficiency reduction \cite{goldemberg2007energia}, thus
 hard coating techniques by thermal aspersion are used to greatly increase the
 life cycle of runner's blades~\cite{krella2011new}.
@@ -18,7 +17,7 @@ conditions on hydropower turbine installations are unfriendly, the atmospheric
 conditions, high temperatures and humidity, and constrained space are
 unfavorable to human operation. Also, some tasks, as the hard coating
 procedure, requires a robotic system due to high precision, speed, and the
-usage of hazardous substances (as propane and others).
+usage of hazardous substances.
 
 In the specific case of Brazil, hydropower is the most important
 power-generation technology. To support future economic growth, Brazil has
@@ -30,19 +29,16 @@ is needed.
 
 Currently, the majority of the robotic systems for \textit{in situ} hydropower
 maintenance are used for repair tasks, such as inspection, welding, and
-grinding. 
-
-Some examples found in the literature are:
+grinding. Some examples found in the literature are:
 
 The Roboturb~\cite{roboturb} is a robotic manipulator to perform erosion
-inspection, and welding on damaged runner's blades. It is composed of six
+inspection and welding on damaged runner's blades. It is composed of six
 revolution joints and one prismatic joint coupled to a flexible rail, which may
 be shaped and then fixed to the blade surface by a passive system of suction cups.
 
-The Scompi~\cite{scompi} is a multipurpose manipulator, designed to
-perform repairs on \textit{Francis} type turbines, as welding and grinding. It
-is composed of five revolution joints (manipulator) and one prismatic joint
-coupled to curved rails.
+The Scompi~\cite{scompi} is a multipurpose manipulator, similar to Roboturb. It
+is designed to perform repairs on \textit{Francis} type turbines, as welding and
+grinding.
 
 \textit{The Climber}~\cite{icm} is an inspection robot for wind and
 hydroelectric turbines, to perform coating removal, surface cleaning and
@@ -50,17 +46,16 @@ coating application. It is a climbing robot with pneumatic adhesion and
 locomotion by tracks.
 
 In this paper, we present a general overview of the EMMA robot, and a detailed
-description of the mechanics, robotic manipulator analysis, and calibration.
-
-EMMA is a robotic system to perform \textit{in situ} hydropower runner's
-blade hard coating, being developed by COPPE/UFRJ in collaboration with Agência
-Nacional de Energia Elétrica (ANEEL) and Energia Sustentável do Brasil (ESBR). The system
-is composed of an industrial manipulator that moves on a customized rail base, a
-3D laser scanner for mapping, and sensors for positioning feedback. The
-system will autonomously operate in a confined space, move on a sloping
-and slippery environment through a rail, identify the runner's blades, calibrate
-its position, generate the path planning and perform the hard coating. The
-project aims to significantly reduce the downtime for hard coating process.
+description of the mechanics, the robotic manipulator, and calibration. EMMA is
+a robotic system to perform \textit{in situ} hydropower runner's blade hard
+coating, being developed by COPPE/UFRJ in collaboration with Agência Nacional
+de Energia Elétrica (ANEEL) and Energia Sustentável do Brasil (ESBR). The
+system is composed of an industrial robotic manipulator that moves on customized
+rail bases, a 3D laser scanner for mapping, and sensors for positioning
+feedback. The system will autonomously operate in a confined space, move
+on a sloping and slippery environment through a rail, identify the runner's
+blades, calibrate its position, generate the path planning and perform the hard
+coating. 
 
 \begin{comment}
 This text is organized as follows: a general overview of the robot and its main
