@@ -117,8 +117,8 @@ blade.
 \begin{figure}
 	\centering
 	\includegraphics[width=.5\columnwidth]{figs/results/manipulability_colorgradient.png}
-    \label{fig:torques}
     \caption{Robotic manipulator joints' torques in color gradient.}
+    \label{fig:torques}
 \end{figure}
 
 \subsection{Base analysis}
@@ -144,29 +144,25 @@ $0.0149^{\circ}$ in respect to robotic manipulator base's coordinate system.
 
 \subsection{Calibration analysis}
 
-Due to the large logistical complexity and the need for availability of
-dry access to a turbine, the possibility to explore simulated data, which are
-consistent and represent effectively the features found in the actual scenario
-of operation, is indispensable. In order to simulate the environment inside the
-turbine, as well the robot and the blade, it was used the toolbox Blensor
-\cite{Gschwandtner11b} and the respective CAD Models. The model blade, however, needed
-to be gathered \textit{in situ} using the laser sensor, for a better
-representantion of the actual hidraulic profile.
+Field tests are very complex due to the logistics and the availability of a dry
+hydropower turbine, thus simulated data were analyzed, which can be consistent
+and can represent effectively the actual operation scenario. In calibration
+analysis, turbine's environment and the robotic manipulator were simulated with
+the toolbox Blensor \cite{Gschwandtner11b}. The blade's model, however, was
+acquired in a field test by a 3D laser scanner for a better representantion of
+the actual hidraulic profile.
 
-The laser sensor was modeled following the technical specifications provided by
-the manufacturer and different scenarios were generated from several positions
-of the simulated sensor. The algorithm was able to localize the position of the
-blade with respect to the coordinate system situated in the origin of the
-laserscanner, even with the presence of occlusion due the presence of the
-manipulator. As can be seen in the picture \ref{fig::calibration}, 
-the left yellow blade is the reference model and each green line represent one
-of the correspondences found between the model and the scene. 
+The laser sensor was modeled following manufacturer's technical
+specifications, and different scenes were generated for several sensor's
+positions. The algorithm is able to localize the blade in respect to the
+sensor's coordinate system, even in occlusion by the presence of the robotic
+manipulator. In Fig.~\ref{fig:calibration}, the left yellow blade is the
+reference model, the red blade is the object to be found, and green lines
+represent the matching features between the model and the scene.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=.95\columnwidth]{figs/results/sim_mh12_sp}
-    \label{fig:torques}
     \caption{Robotic manipulator joints' torques in color gradient.}
+    \label{fig:calibration}
 \end{figure}
-
-%TODO Abelha: falar como funcionou o algoritmo, e testes do mapeamento in situ
