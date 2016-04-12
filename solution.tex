@@ -129,21 +129,17 @@ is sufficient for this application.
 
 In opposition to \textit{ex situ} operations, in which the relative position
 between the robot and the blade to be coated is fixed, \textit{in situ}
-operation requires robot and blade localization and pose. In EMMA's context,
-system calibration is robot and blade identification, and pose estimatation in
-respect to the environment. To gather tridimensional information about the
-turbine's environment, a laser scanner is placed inside the hydraulic circuit
-and the pose estimation is divided in: robot localization, and
-localization of the blade.
+operation requires environment mapping and robot localization. In
+EMMA, system calibration is robot and blade identification, and pose estimation in
+respect to the environment. A 3D laser scanner is placed inside the hydraulic
+circuit for mapping and a point cloud is generated.
  
-The attachment of markers on the manipulator or its base can be performed with
-precision and repeatability, thus reflective spheres were choosen to serve
-as reference in the process of localization of the manipulator in respect to the
-environment. These spheres are indetified inside the point cloud by a 3D Hough
-transform method based on the work of \cite{camurri20143d}. The 3D Hough
-transform, as its two dimensional counterpart, is a search on the (discretized)
-parametric space of the object. A sphere has a four dimensional parameter space, tree for
-the position of its center and one for its radius. For each point on the point
+The attachment of markers on the robotic manipulator can be
+performed with high precision and repeatability, thus reflective spheres were
+choosen as reference in the process of robot localization. These spheres are indetified inside the point cloud by a 3D Hough
+transform method \cite{camurri20143d}. The 3D Hough
+transform is the search of the object in the parametric space. A
+sphere has a four dimensional parameter space, tree for the position of its center and one for its radius. For each point on the point
 cloud, it is assined a collection of points on the discretized parametric space
 (corresponding to the viable spheres passing through that point). Those points
 of the discretized parametric space which have a great number of point assined
