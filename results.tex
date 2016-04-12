@@ -122,15 +122,47 @@ blade.
 \end{figure}
 
 \subsection{Base analysis}
-%TODO Estevão: falar o programa utilizado para a análise, numero de elementos
-% finitos e parametros necessarios para reproduçao da analise
+
 The FEA analysis of the base verifies the Von Mises stress and displacements
 along the structure's slender members. The stress analysis determines the
 integrity of the base due to the maximum loads of the robotic manipulator. The
 displacements determine if the structure provides a rigid base for the robotic
-manipulator. According to the hard coating requirements, big displacements are
-not even allowable in the elastic region of the material. 
+manipulator. According to the hard coating requirements, displacements of the
+order of millimeters are not even allowable in the elastic region of the
+material.
 %TODO Estevão: big displacements é generico. 
+
+%TODO Estevão: falar o programa utilizado para a análise, numero de elementos
+% finitos e parametros necessarios para reproduçao da analise
+
+%TODO Estevão: corrigir formato compilado das referencias estilo techreport
+
+The FEA software used to solve the analysis was the Nastran
+In-CAD$^{\mbox{\small\textregistered}}$ integrated to the
+SolidWorks'$^{\mbox{\small\textregistered}}$ interface. The elements are bar
+Line Elements (1-D) and a mesh of global size 25~mm. The material properties are for 
+the EN AW-6060~\cite{DIN_2007} as the material used for the aluminum profile
+structure and are in accordance to the table~\ref{tab::prop_material}. The
+boundary conditions are the 3 translational constraints for the anchor arms and
+a vertical constraint to the feet. The rotational joint is modeled as a rigid
+conector between the rails, the same way as the robot's base with respect to the
+second rail. The maximum dynamic forces and moments \cite{MH12_manual} are
+applied as static loads, to the point that represents the origin of the robot's base. 
+
+\begin{table} [h!]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Properties}   & \textbf{Value}   & \textbf{Units}	  \\ \hline
+Density			       & $2700$           & kg/$m^3$          \\ \hline
+Young Modulus		   & $70,0$           & GPa               \\ \hline
+Shear Modulus		   & $26,1$           & GPa               \\ \hline
+Poisson's Ratio		   & $0,34$           &                   \\ \hline
+Yield Strength  	   & $200$            & MPa               \\ \hline
+\end{tabular}
+\caption{EN AW-6060 Properties}
+\label{tab::prop_material}
+\end{table}
 
 The maximum Von Mises stress was 5.78~MPa, which gives a factor of safety of
 34.6. It was found for a particular case where the robotic manipulator is in
