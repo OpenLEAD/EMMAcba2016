@@ -7,10 +7,9 @@
 %Estevão/Renan: Solucao-Shutter
 %TODO Gabriel: Solucao-Calibration
 
-Regarding the environment constraints detailed in Sec.~\ref{problem}, the
-conceptual solution of EMMA is a mid-sized robotic manipulator with a modular
-rail base. As the manipulator can not fully cover the blade surface in a
-fixed position, and the robot locomotion is complex in the turbine's
+The conceptual solution of EMMA is a mid-sized robotic manipulator with a
+modular rail base. As the manipulator can not fully cover the blade's surface in
+a fixed position, and the robot locomotion is complex in the turbine's
 environment, a customized rail should provide extra degrees of freedom (DOF) to
 the system. EMMA aims to be a generic solution to bulb turbines, being modular,
 and versatile. It is an autonomous system for hard coating applications, thus
@@ -19,31 +18,27 @@ customized base; and the robot calibration.
 
 
 \subsection{Robotic Manipulator}\label{manipulator}
-Trying to propose an \textit{in situ} turbine hard coating solution similar to
+Trying to propose an \textit{in situ} hard coating solution similar to
 the \textit{ex situ} solution is a natural thought. Therefore, the first step of
 EMMA's development was the research for industrial robotic manipulators. The
-compilation of the HVOF coating requirements and environment constraints demands
-a mid-sized robotic manipulator, as a large-sized one would not be able to move
-inside the confined space and would not fit at the back side of the
-runner's blade, and a small-sized one would not have the required payload and
-speed for the process. In EMMA's project, the robotic manipulator will be
-responsible for the coating application, precision, and tool handling.
+HVOF coating requirements and environment constraints demand a mid-sized
+robotic manipulator, as seen in Sec.~\ref{problem} a large-sized one would not
+be able to move inside the confined space, and a small-sized manipulator would not
+have the required payload and speed. In EMMA's project, the
+robotic manipulator will be responsible for the coating application, precision, and tool handling.
 
-A market survey was conducted to determine the most suitable industrial robotic
+A market survey was conducted to determine the most suitable robotic
 manipulator for the application. A 3D CAD model of the hydropower turbine was
 built, and overall simu\-lations and analysis were performed using the Open
 Robotics Automation Virtual Environment (OpenRave) \cite{diankov2008openrave}.
-The simulations involve runner's blade discretization, coating strategy,
-coating segmentation (partitioning) and base positions computation for full
-blade cover, and robotic manipulator kinematics and dynamics. Among the
-analyzed mid-sized robotic manipulators, the Yaskawa Motoman MH12\raisebox{1ex}{\textregistered}
+The simulations involve runner's blade discretization, coating strategy, base
+positions computation for full blade cover, and robotic manipulator's kinematics
+and dynamics. Among the analyzed mid-sized robotic manipulators, the Yaskawa Motoman MH12
 robot was chosen due to its satisfactory workspace, and versatility.
 
-To achieve a good coating quality, the HVOF process requires that the robotic
-manipulator's end-effector moves with a constant 40~m/min speed along the
-blade's surface. The typical path of HVOF coating is a zigzagging trajectory,
-i.e., it is a deceleration/acceleration process with direction changes. As the
-\textit{ex situ} solution uses a large-sized robotic manipulator, the
+The typical path of HVOF coating is a zigzagging trajectory,
+i.e., it is a deceleration and acceleration process with direction changes. As
+the \textit{ex situ} solution uses a large-sized robotic manipulator, the
 end-effector's direction changes occur outside the blade's range, complying the
 speed requirement in the blade's range. However, while deceleration or
 acceleration, coating material is wasted to the environment or, most commonly
