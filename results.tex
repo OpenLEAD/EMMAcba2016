@@ -43,8 +43,7 @@ computed to determine the robotic manipulator's joint parameters that provide
 the desired positions and orientations of the end-effector.
 Fig.~\ref{fig:coating} shows examples of the algorithm, where black dots are
 coated points and blue dots are coated points with angle tolerance. At the end
-of the Alg.~\ref{alg:strategy}, the \textit{reachable samples}
-(Alg. Line~\ref{algvar:reachable}) relate coating samples with base
+of the algorithm, the \textit{reachable samples} relate coating samples with base
 positions, thus it is possible to create a coating strategy and to select the
 simplest base positions. The result is the minimum required positions for the
 robotic manipulator's base.
@@ -58,6 +57,7 @@ robotic manipulator's base.
 	example.]{\includegraphics[width=0.47\columnwidth]{figs/results/mh12_coating2.png}\label{fig:coating}}
 \end{figure}
 
+\begin{comment}
 \begin{algorithm}
 \caption{Coating strategy}
 \label{alg:strategy}
@@ -76,6 +76,7 @@ robotic manipulator's base.
 \EndFor
 \end{algorithmic}
 \end{algorithm}
+\end{comment}
 
 The kinematic approach described above is not enough to ensure that the robot
 will reach the \textit{coating samples}. Maximum accelerations, decelerations,
@@ -129,8 +130,8 @@ robot's base with respect to the second rail. The robotic manipulator's maximum
 dynamic forces and moments are applied, as static loads, to the point that
 represents the origin of the robot's base.
 
-The maximum Von Mises stress was 5.78~MPa, which gives a factor of safety of
-34.6. It was found for a particular case where the robotic manipulator is in
+The maximum Von Mises stress was 5.78~MPa (Fig.~\ref{fig:von_mises}), which
+gives a factor of safety of 34.6. It was found for a particular case where the robotic manipulator is in
 the secondary rail, 800~mm from the rotational joint. The displacement of the
 structure causes a maximum translation of 0.47~mm and a angular deflection of
 $0.0149^{\circ}$ in respect to robotic manipulator base's coordinate system. 
@@ -140,6 +141,13 @@ different equipment's orientations and places, confirmed the manufacturer's
 payload capacity. As the maximum tractive reaction force obtained in FEA
 simulations was 956~kgf, it was chosen a magnetic fixture with 1200~kgf
 capacity.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.95\columnwidth]{figs/mecanica/von_mises.png}
+    \caption{Von Mises's stress simulation.}
+    \label{fig:von_mises}
+\end{figure}
 
 \subsection{Calibration analysis}
 
