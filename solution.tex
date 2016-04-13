@@ -137,7 +137,9 @@ circuit for mapping and a point cloud is generated.
 The attachment of markers on the robotic manipulator can be
 performed with high precision and repeatability, thus reflective spheres were
 choosen as reference in the process of robot localization. These spheres are indetified inside the point cloud by a 3D Hough
-transform method \cite{camurri20143d}. The 3D Hough
+transform method \cite{camurri20143d}. 
+\begin{comment}
+The 3D Hough
 transform is the search of the object in the parametric space. A
 sphere has a four dimensional parameter space, tree for the position of its center and one for its radius. For each point on the point
 cloud, it is assined a collection of points on the discretized parametric space
@@ -146,15 +148,13 @@ of the discretized parametric space which have a great number of point assined
 to are probable spheres. There might arise issues on the size of the parameter
 space, but it is reduced by previous knowledge on the expected radius of the
 spheres and viable region for the robot inside the enviroment.
+\end{comment}
 
-The pose estimation of the blade cannot be assisted with the introduction of
-markers, and the localization process must rely only on the intrinsec properties
-of the blade's surface geometry. As proposed in \cite{Tombari2010a}, a point
-cloud model of the blade is compared to the point cloud of the scene aquired by
-the laser sensor. A subset of points in each point cloud is enhanced with a
-local description of its local neighborhood. Given the sets of features, it is
-possible to determine the correspondence between the two sets. If enough
-correspondences are found in the scene, above a threshold, the blade is
-identified and the position is determined by the correspondences.
+The pose estimation relies on the intrinsec properties of the blade's surface
+geometry. The model of blade's point cloud  is compared to the point cloud of
+the scene aquired by the 3D laser sensor \cite{Tombari2010a}. A subset of points
+in each point cloud is enhanced with a local description of its local neighborhood. Given the sets of features, it is possible to determine the correspondence between the two sets. If enough correspondences are found in
+the scene, above a threshold, the blade is identified and the position is
+determined by the correspondences.
 %TODO Abelha: o que é mapear e calibrar no contexto do EMMA? Como é feita a
 % calibração e o mapeamento, quais os sensores? quais os algoritmos?
