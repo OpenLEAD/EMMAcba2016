@@ -138,18 +138,13 @@ performed with high precision and repeatability, thus reflective spheres were
 choosen as reference in the process of robot localization. These spheres are indetified inside the point cloud by a 3D Hough
 transform method \cite{camurri20143d}. 
 
-Alternatively, the pose estimation of the blade cannot be assisted with the
-introduction of markers, and the localization process must rely
-only on the intrinsec properties of the blade's surface geometry. 
-Therefore, a  model of blade's is generated as a point cloud and it is compared to the point cloud of
-the scene aquired by the 3D laser sensor \cite{Tombari2010a}.
-The caracteristics of the blade are represented by a local descriptor, i.e. each
-point of interest on the blade is associated with the information about its
-local neighborhood. The two point clouds are, then, subsampled and have the
+The pose estimation relies on the intrinsec properties of the blade's
+surface geometry. Therefore, a point cloud of the model of the blade is
+generated, and it is compared to the point cloud of the scene, aquired by the 3D
+laser sensor \cite{Tombari2010a}. The characteristics of the blade are represented by a local
+descriptor, i.e., each point of interest on the blade is associated with the
+information about its local neighborhood. The two point clouds are subsampled and have the
 feature descriptors associated to the points of interest. Given the sets of features, 
 it is possible to determine the correspondence between the two sets. If enough correspondences are found in
 the scene, above a threshold, the blade is identified and the position is
-determined by the correspondences.
-
-%TODO Abelha: o que é mapear e calibrar no contexto do EMMA? Como é feita a
-% calibração e o mapeamento, quais os sensores? quais os algoritmos?
+determined.
