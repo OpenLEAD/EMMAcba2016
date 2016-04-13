@@ -39,14 +39,6 @@ feasible samples are named \textit{coating samples}.
 Fig.~\ref{fig:discretization} shows blade's discretization and the
 \textit{coating samples}. 
 
-\begin{figure}
-	\centering
-	\subfigure{\includegraphics[width=0.47\columnwidth]{figs/results//blade_grid1.png}}\quad
-	\subfigure{\includegraphics[width=0.47\columnwidth]{figs/results//blade_grid2.png}}
-    \caption{\textit{Coating samples} as red dots.}
-    \label{fig:discretization}
-\end{figure}
-
 The coating segmentation and base positions computation is to calculate the
 required robotic manipulator's base positions to process all the \textit{coating
 samples} with angle and distance tolerances. It is a brute force search, in
@@ -63,10 +55,11 @@ positions for the robotic manipulator's base.
 
 \begin{figure}
 	\centering
-	\subfigure{\includegraphics[width=0.47\columnwidth]{figs/results/mh12_coating1.png}}\quad
-	\subfigure{\includegraphics[width=0.47\columnwidth]{figs/results/mh12_coating2.png}}
-    \caption{Robotic manipulator coating samples.}
-     \label{fig:coating}
+	\subfigure[Blade
+	discretization.]{\includegraphics[width=0.46\columnwidth]{figs/results/blade_grid1.png}\label{fig:discretization}}
+	\quad
+	\subfigure[Coating
+	example.]{\includegraphics[width=0.47\columnwidth]{figs/results/mh12_coating2.png}\label{fig:coating}}
 \end{figure}
 
 \begin{algorithm}
