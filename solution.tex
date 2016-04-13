@@ -47,8 +47,8 @@ to a shadow plate.
 The mid-sized robot for \textit{in situ} operation makes this strategy
 impossible, as, at some base positions, the robot will always be in the blade's
 range. The proposed solution modifies the original circuit of the gases that
-carry the coating particles to a new 2-way controlled circuit, in wich there is a directional
-valve that changes the flow path from the thermal spray gun to return to tank
+carry the coating particles to a new 2-way controlled circuit, in which there is
+a directional valve that changes the flow path from the thermal spray gun to return to tank
 circuit. The directional valve is autonomously actuated accordingly to the robotic
 manipulator's trajectory, i.e., the valve will ``shut'' while end-effector
 changes its direction. Therefore, the solution provides coating material
@@ -133,18 +133,18 @@ EMMA, system calibration is robot and blade identification, and pose estimation 
 respect to the environment. A 3D laser scanner is placed inside the hydraulic
 circuit for mapping and a point cloud is generated.
  
-The attachment of markers on the robotic manipulator can be
-performed with high precision and repeatability, thus reflective spheres were
-choosen as reference in the process of robot localization. These spheres are indetified inside the point cloud by a 3D Hough
-transform method \cite{camurri20143d}. 
+The attachment of markers on the robotic manipulator can be performed with high
+precision and repeatability, thus reflective spheres were chosen as reference
+in the process of robot localization. These spheres are identified inside the
+point cloud by a 3D Hough transform method \cite{camurri20143d}.
 
-The pose estimation relies on the intrinsec properties of the blade's
-surface geometry. Therefore, a point cloud of the model of the blade is
-generated, and it is compared to the point cloud of the scene, aquired by the 3D
-laser sensor \cite{Tombari2010a}. The characteristics of the blade are represented by a local
+The pose estimation relies on the intrinsec properties of the blade's surface
+geometry. Therefore, a point cloud of the model of the blade is generated, and
+it is compared to the point cloud of the scene, acquired by the 3D laser sensor
+\cite{Tombari2010a}. The characteristics of the blade are represented by a local
 descriptor, i.e., each point of interest on the blade is associated with the
-information about its local neighborhood. The two point clouds are subsampled and have the
-feature descriptors associated to the points of interest. Given the sets of features, 
-it is possible to determine the correspondence between the two sets. If enough correspondences are found in
-the scene, above a threshold, the blade is identified and the position is
-determined.
+information about its local neighborhood. The two point clouds are subsampled
+and have the feature descriptors associated to the points of interest. Given the
+sets of features,  it is possible to determine the correspondence between the
+two sets. If enough correspondences are found in the scene, above a threshold,
+the blade is identified and the position is determined.
