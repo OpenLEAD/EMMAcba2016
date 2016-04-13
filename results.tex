@@ -17,41 +17,37 @@ elements introduced in Sec.~\ref{solution}.
 
 As stated in Subsec.~\ref{manipulator}, simulations for the robotic
 manipulator were implemented with OpenRave, and consist of the following steps:
-blade's surface discretization; coating strategy; coating segmentation
-(partitioning) and base positions computation; kinematics, dynamics and
-manipulability.
+blade's surface discretization; coating strategy; base position computation;
+kinematics, dynamics and manipulability.
 
-The blade's surface discretization is an uniform sampling of the blade to
+The blade's surface discretization is an uniform sampling to
 determine where to the coating directions should be. However, sampling the
 actual geometric surface can lead to unwanted results due to possible
 concavities. A simpler approach is to take the bounding box of the blade and
-sample its surface uniformly (\textit{axis-aligned bounding box}). Once the
+sample its surface uniformly. Once the
 surface of the box is sampled, the intersection of the blade and a ray
 originating from each point going inward is taken. The normal of the blade's
 surface from each of these intersection points is taken to be the coating
 direction. As an uniform sampling of the box does not mean an uniform sampling
-of the blade, the box is oversampled and a 50~mm filter is applied to the
-resulting sampling of the blade, by a multidimensional search key with k-d tree.
-The result is an uniformely sampled blade, and the samples are spaced
-50~mm from each other. These samples are translated 230~mm in respect with their
-normal vectors, collision checks with the environment are made, and the
-feasible samples are named \textit{coating samples}.
-Fig.~\ref{fig:discretization} shows blade's discretization and the
+of the blade, the box is oversampled and a 50~mm filter is applied, by a multidimensional search key with k-d tree.
+The samples are translated 230~mm in respect with their normal vectors,
+collision checks with the environment are made, and the feasible samples are
+named \textit{coating samples}. Fig.~\ref{fig:discretization} shows the
 \textit{coating samples}. 
 
-The coating segmentation and base positions computation is to calculate the
-required robotic manipulator's base positions to process all the \textit{coating
-samples} with angle and distance tolerances. It is a brute force search, in
-which the positions are uniformly sampled in the turbine's confined space. For
-each position, inverse kinematics (IKFast) are computed to determine the
-robotic manipulator's joint parameters that provide the desired positions and
-orientations of the end-effector. Fig.~\ref{fig:coating} shows examples of the
-algorithm, where black dots are coated points and blue dots are coated points
-with angle tolerance. At the end of the Alg.~\ref{alg:strategy}, the reachable
-samples are in the Matrix~\ref{algvar:reachable}, which relates coating samples
-with base positions, thus it is possible to create a coating strategy and to
-select the simplest base positions. The result is the minimum required
-positions for the robotic manipulator's base.
+Base position computation is to uniformly sampling the turbine's
+confined space and calculate the required robotic manipulator's base positions
+to process all the \textit{coating samples} in angle and distance tolerances.
+It is a brute force search: for each position, inverse kinematics (IKFast) are
+computed to determine the robotic manipulator's joint parameters that provide
+the desired positions and orientations of the end-effector.
+Fig.~\ref{fig:coating} shows examples of the algorithm, where black dots are
+coated points and blue dots are coated points with angle tolerance. At the end
+of the Alg.~\ref{alg:strategy}, the \textit{reachable samples}
+(Alg. Line~\ref{algvar:reachable}) relate coating samples with base
+positions, thus it is possible to create a coating strategy and to select the
+simplest base positions. The result is the minimum required positions for the
+robotic manipulator's base.
 
 \begin{figure}
 	\centering
@@ -97,15 +93,13 @@ $\alpha=J^+(a-\omega^TH\omega)$, where $H$ is the Hessian matrix
 \cite{hourtash2005kinematic}, $a=\ddot{X}$ is the linear accelerations, and $J$
 is the Jacobian matrix. Therefore, torques can be analytically estimated with
 the inverse dynamics in OpenRave. Comparing estimated torques with the technical
-specifications, dynamics simulations's results showed that the robotic
+specifications, dynamic simulations's results showed that the robotic
 manipulator should be placed at, at least, 1400~mm distance from the blade's
-surface. Placing the robot nearer would enhance the robotic manipulator's
-workspace, but it would increase the torques also, above the technical
-specifications. Fig.~\ref{fig:torques} shows joints' torques for blades's
-\textit{coating samples} in a color gradient way, where red dots represents
-small magnitudes and blue dots large magnitudes. The Fig.~\ref{fig:torques} is
-an example of the robotic manipulator in a close range, 900~mm distance from the
-blade.
+surface plane. Placing the robot nearer would enhance the robotic manipulator's
+workspace, but it would increase also the torques. The Fig.~\ref{fig:torques}
+is an example of the robotic manipulator in a close range, 900~mm distance from the
+blade. It shows joints' torques for blades's \textit{coating samples} in a color
+gradient way, where red dots represents small magnitudes and blue dots are large magnitudes. 
 
 \begin{figure}
 	\centering
@@ -141,13 +135,11 @@ the secondary rail, 800~mm from the rotational joint. The displacement of the
 structure causes a maximum translation of 0.47~mm and a angular deflection of
 $0.0149^{\circ}$ in respect to robotic manipulator base's coordinate system. 
 
-The tests conducted in the draft tube for the magnetic fixtures confirmed the
-payload capacity declared by the manufacturer. These equipment are sized
-depending on the results for the anchors' reactive forces obtained in FEA
-simulations. The maximum tractive reaction force found was 9556~N.
-Therefore, as a matter of safety, the magnetic fixture need a capacity 1.5 times
-higher.
-
+The field tests conducted in the draft tube for the magnetic fixtures, at
+different equipment's orientations and places, confirmed the manufacturer's
+payload capacity. As the maximum tractive reaction force obtained in FEA
+simulations was 956~kgf, it was chosen a magnetic fixture with 1200~kgf
+capacity.
 
 \subsection{Calibration analysis}
 
