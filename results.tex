@@ -10,7 +10,8 @@
 
 Simulations and experimental tests were performed to verify the proposed
 concepts. The following results were divided according to the EMMA system's
-elements introduced in Sec.~\ref{solution}. 
+elements introduced in Sec.~\ref{solution}. The Jirau's dam is the case study of
+EMMA, thus simulations and field tests were conducted in Jirau's environment.
 
 
 \subsection{Robotic manipulator analysis}\label{sec::man_analysis}
@@ -18,29 +19,15 @@ elements introduced in Sec.~\ref{solution}.
 As stated in Subsec.~\ref{manipulator}, simulations for the robotic
 manipulator were implemented with OpenRave, and consist of the following steps:
 blade's surface discretization; coating strategy; base position computation;
-kinematics, dynamics and manipulability.
+kinematics, dynamics and manipulability. 
 
-The blade's surface discretization is an uniform sampling to
-determine where to the coating directions should be. However, sampling the
-actual geometric surface can lead to unwanted results due to possible
-concavities. A simpler approach is to take the bounding box of the blade and
-sample its surface uniformly. Once the
-surface of the box is sampled, the intersection of the blade and a ray
-originating from each point going inward is taken. The normal of the blade's
-surface from each of these intersection points is taken to be the coating
-direction. As an uniform sampling of the box does not mean an uniform sampling
-of the blade, the box is oversampled and a 50~mm filter is applied, by a multidimensional search key with k-d tree.
-The samples are translated 230~mm in respect with their normal vectors,
-collision checks with the environment are made, and the feasible samples are
-named \textit{coating samples}. Fig.~\ref{fig:discretization} shows the
+Among the analyzed mid-sized robotic manipulators, the Yaskawa Motoman MH12
+robot was chosen due to its satisfactory workspace, and versatility.
+
+Fig.~\ref{fig:discretization} shows the
 \textit{coating samples}. 
 
-Base position computation is to uniformly sample the turbine's
-confined space and calculate the required robotic manipulator's base positions
-to process all the \textit{coating samples} in angle and distance tolerances.
-It is a brute force search: for each position, inverse kinematics (IKFast) are
-computed to determine the robotic manipulator's joint parameters that provide
-the desired positions and orientations of the end-effector.
+
 Fig.~\ref{fig:coating} shows examples of the algorithm, where black dots are
 coated points and blue dots are coated points with angle tolerance. At the end
 of the algorithm, the \textit{reachable samples} relate coating samples with base
@@ -57,43 +44,7 @@ robotic manipulator's base.
 	example.]{\includegraphics[width=0.47\columnwidth]{figs/results/mh12_coating2.png}\label{fig:coating}}
 \end{figure}
 
-\begin{comment}
-\begin{algorithm}
-\caption{Coating strategy}
-\label{alg:strategy}
-\begin{algorithmic}[1]
-\ForAll{Base positions} 
-		\ForAll{\textit{Coating samples}}
-			\State Joints = IKFast(sample)
-			\If{not Joints} 
-				\State Joints = IKFast(sample,tol)
-			\EndIf
-			\If{Joints} 
-				\State $\textrm{Reachable}[\textrm{pos}] += [\textrm{sample}]$
-				\label{algvar:reachable}
-			\EndIf
-		\EndFor
-\EndFor
-\end{algorithmic}
-\end{algorithm}
-\end{comment}
-
-The kinematic approach described above is not enough to ensure that the robot
-will reach the \textit{coating samples}. Maximum accelerations, decelerations,
-torques, and jacobian singularities should be investigated and compared to the robotic
-manipulator's specifications. The Newton-Euler method
-\cite{sciavicco2000differential} was adopted for torque computation: $\tau =
-M(q)\alpha + C(q,\omega)\omega + G(q)$, where $\tau$ is the joints' torques,
-$M$ is the matrix of links' masses and moments of inertia, $\alpha$ is the
-joints' accelerations, $q$ is the joints' angles, $\omega$ is the joints'
-velocities, $C$ is the Coriolis matrix, and $G$ is the gravity vector.
-
-In the dynamic approach, $M$ was estimated by the robotic manipulator's CAD
-model. The angular accelerations are derived by differential kinematics:
-$\alpha=J^+(a-\omega^TH\omega)$, where $H$ is the Hessian matrix
-\cite{hourtash2005kinematic}, $a=\ddot{X}$ is the linear accelerations, and $J$
-is the Jacobian matrix. Therefore, torques can be analytically estimated with
-the inverse dynamics in OpenRave. Comparing estimated torques with the technical
+Comparing estimated torques with the technical
 specifications, dynamic simulations's results showed that the robotic
 manipulator should be placed at, at least, 1400~mm distance from the blade's
 surface plane. Placing the robot nearer would enhance the robotic manipulator's
@@ -108,6 +59,15 @@ gradient way, where red dots represents small magnitudes and blue dots are large
     \caption{Robotic manipulator joints' torques in color gradient.}
     \label{fig:torques}
 \end{figure}
+
+Despite being able to coat approximately 50\% of the blade on a fixed
+position, kinematic and dynamic analysis show that the MH12 robot cannot fully
+cover it vertically or horizontally, demanding extra 2-DOF along the blade's
+surface. The coating strategy reveals that the blade's top
+extremities require an specific base position, reachable
+with a primary rail between the blades. Therefore, the MH12 robot will require
+at least four positions along the blade and one position on a primary
+rail, between blades. 
 
 \subsection{Base analysis}
 
