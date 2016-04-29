@@ -32,7 +32,8 @@ manipulator for the application. Overall simu\-lations and analysis were perform
 Robotics Automation Virtual Environment (OpenRave) \cite{diankov2008openrave},
 an environment for simulating motion planning algorithms for robotics. There are
 several tools for dynamics simulation of robots, as Gazebo, V-Rep,
-Webots, MatLab/Simulink, and others \cite{ivaldi2014tools}. OpenRave stands out
+Webots, MatLab/Simulink, and others% \cite{ivaldi2014tools}
+. OpenRave stands out
 for having the following features: integral desgin for real-time control and
 execution monitoring; core functionality for kinematics operations and
 physics simulations; a network protocol allowing interpreted scripting languages
@@ -117,10 +118,7 @@ EMMA's base comprises two rails, forming two prismatic joints (P). The
 first, or primary rail, is parallel to the turbine axis, and it is responsible
 for the transportation of the robotic manipulator from hatch to blade. The
 secondary rail is parallel to the blade's surface, and it is assembled from the
-first rail by a rotational joint (R). A third prismatic joint
-is placed in the secondary rail for height adjustment of the robotic
-manipulator. These rails guarantee the full coating, as they allow the
-robotic manipulator movement in the confined space by a 4-DOF base, PRPP joints.
+first rail by a rotational joint (R).
 
 \begin{figure}
 	\centering
@@ -129,10 +127,11 @@ robotic manipulator movement in the confined space by a 4-DOF base, PRPP joints.
     \label{fig:base}
 \end{figure}
 
-The hatch limits the size of the rail in terms of weight and geometry, thus a
-modular concept was design, such that the small modular parts can be easily and
+The hatch and turbine' space can limit the size of the rail in terms of weight
+and geometry, thus a modular concept was design, such that the small modular parts can be easily and
 manually assembled inside the turbine. The base is a modular two parallel
-profiled rail with a four carriage setup  \cite{SKF_2013}. In this
+profiled rail with a four carriage setup%  \cite{SKF_2013}
+. In this
 configuration, the reaction moments of the base are cancelled by a force couple provided by each couple of
 carriages. The commercial modules are aluminum structures for corrosion resistance,
 lightweight, geometric flexibility, and modularity, as it is possible to
@@ -154,12 +153,13 @@ The draft tube and runner area are conical shape structures, curved and
 sloped. The environment modification, as wielding and drilling, should be
 avoided, thus properly fixing the base on the ground is a major challenge in
 EMMA project. The draft tube is composed of a ferromagnetic steel material,
-hence magnetic fixtures may be suitable for base attachment. 
+hence magnetic fixtures is suitable for base attachment. 
 
+\begin{comment}
 Common magnetic fixture products are temporary magnetic equipments used to hoist
 and transport materials in an industrial plant. In EMMA, it is used to attach
 and anchor the rail's modules to the ground.
-
+\end{comment}
 
 \subsection{Calibration}
 
