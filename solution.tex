@@ -211,5 +211,16 @@ points were sampled in order to keep the distribution of normals as large as
 possible \cite{Rusinkiewicz2001}. This approach enables the reduction of the
 number of points to be sampled and has a lower computional cost.
 
+Once the the descriptors were estimated the correspondences between them are
+determined if the euclidean distance between a descriptor in the scene and model
+is lower than a threshold. Each Correspondence vote, then, for a specific pose
+and scale factor in the Hough space. After the an instance of the model is
+found, it is performed an ICP matching with the full resolution point clouds to
+realize a fine alignment and compensate any discrepancy introduced by the
+sampling. With the position of the blade and the manipulator in respect to a
+common coordinate system, i.e. the origin of the laser sensor, it is possible to
+determine the transformation between them and this information can be fed to the
+trajectory and coverage algorithms.
+
 
 
