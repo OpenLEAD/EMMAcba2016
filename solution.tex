@@ -186,4 +186,20 @@ two sets. If enough correspondences are found in the scene, above a threshold,
 the blade is identified and the position is determined \cite{Tombari2010a}. 
 
 The computation of the descriptors is expensive and a subsampling of the point
-clouds, both model and the scene 
+clouds, both model and the scene, is perfomed due the high density provided by
+the sensor. However, considering the geometry of the reference model searched
+in the scene, i.e. the blade, it is fundamental to pick wisely the interest
+points that will have a descriptor associated, as the blade is has a large area
+with a smooth surface and the neighborhood of each point on this section
+introduce similiar information, creating ambiguous descriptors that degrade the
+matching perfomance between the two point clouds.
+The samples in this area can only provide information about the translation in
+the direction perpendicular to the supporting plane and the two rotation
+associated with it, there is no information about the others DoF, making the
+alingment to ``slide'' from the correct transformation. Therefore, the interest
+points were sampled in order to keep the distribution of normals as large as
+possible \cite{Rusinkiewicz2001}. This approach enables the reduction of the
+number of points to be sampled and has a lower computional cost.
+
+
+
