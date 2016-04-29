@@ -29,7 +29,21 @@ robotic manipulator will be responsible for the coating application, precision, 
 
 A market survey was conducted to determine the most suitable robotic
 manipulator for the application. Overall simu\-lations and analysis were performed using the Open
-Robotics Automation Virtual Environment (OpenRave) \cite{diankov2008openrave}, .
+Robotics Automation Virtual Environment (OpenRave) \cite{diankov2008openrave},
+an environment for simulating motion planning algorithms for robotics. There are
+several tools for dynamics simulation of robots, as Gazebo, V-Rep,
+Webots, MatLab/Simulink, and others \cite{ivaldi2014tools}. OpenRave stands out
+for having the following features: integral desgin for real-time control and
+execution monitoring; core functionality for kinematics operations and
+physics simulations; a network protocol allowing interpreted scripting languages
+like Octave and Matlab; built-in core tools and plugin interfaces for
+manipulation planning; standard plugins that allow testing of different planning
+algorithms and sensing systems; ROS compatibility.
+
+OpenRAVE has been used to write robust manipulation
+scripts that have been tuned and tested on multiple robot systems for the past 2 years.
+
+
 The simulations involve runner's blade discretization, base
 positions computation for full blade cover, and robotic manipulator's kinematics
 and dynamics. 
