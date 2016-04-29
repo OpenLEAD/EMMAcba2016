@@ -162,30 +162,58 @@ hence magnetic fixtures may be suitable for base attachment.
 
 Common magnetic fixture products are temporary magnetic equipments used to hoist
 and transport materials in an industrial plant. In EMMA, it is used to attach
-and anchor the rail's modules to the ground. 
+and anchor the rail's modules to the ground.
 
 
 \subsection{Calibration}
 
 In opposition to \textit{ex situ} operations, in which the relative position
-between the robot and the blade to be coated is fixed, \textit{in situ}
-operation requires environment mapping and robot localization. In
-EMMA, system calibration is robot and blade identification, and pose estimation in
-respect to the environment. A 3D laser scanner is placed inside the hydraulic
-circuit for mapping and a point cloud is generated.
+between the robot and the blade to be coated is fixed and \textit{a prior}
+known, \textit{in situ} operations this assumptions cannot be made and it
+is needed to aquire information from the environment in order to identify
+and localize the elements of interest. In EMMA, the system calibration consists
+in the indentification of the manipulator and blade, and their
+pose estimation in respect to the turbine interior. Due the light conditions
+inside the hydraulic circuit  a 3D laser scanner is used to gather
+tridimensional information of the environment, including the robot manipulator
+and base. The calibration process was divided in two different approach
+depending on the element to be localized and its caracteristics. The possibility
+to attach or install markers in known positions dictated the strategies to be
+chosen, therefore the calibration is separeted in the pose estimation of the
+robot and of the blade, as follows.
  
 The attachment of markers on the robotic manipulator can be performed with high
 precision and repeatability, thus reflective spheres were chosen as reference
-in the process of robot localization. These spheres are identified inside the
-point cloud by a 3D Hough transform method \cite{camurri20143d}.
+points in the process of robot localization. These spheres are identified inside
+the point cloud by a 3D Hough transform method \cite{camurri20143d}.
 
-The pose estimation relies on the intrinsec properties of the blade's surface
-geometry. Therefore, a point cloud of the model of the blade is generated, and
-it is compared to the point cloud of the scene, acquired by the 3D laser sensor
-\cite{Tombari2010a}. The characteristics of the blade are represented by a local
-descriptor, i.e., each point of interest on the blade is associated with the
-information about its local neighborhood. The two point clouds are subsampled
-and have the feature descriptors associated to the points of interest. Given the
+Alternatively, to install any marker on the
+blade would require its own calibration to ensure a consistent reference point,
+therefore the pose estimation of the blade must rely only on the intrinsec
+properties of the its surface geometry. The information must be extracted from
+the point cloud provided by the 3d laser sensor and compared to a reference
+model previously stored. The characteristics of the point clouds are represented
+by local descriptors, i.e., each point of interest on the blade is associated
+with the information about its local neighborhood. Given the
 sets of features,  it is possible to determine the correspondence between the
 two sets. If enough correspondences are found in the scene, above a threshold,
-the blade is identified and the position is determined.
+the blade is identified and the position is determined \cite{Tombari2010a}. 
+
+The computation of the descriptors is expensive and a subsampling of the point
+clouds, both model and the scene, is perfomed due the high density provided by
+the sensor. However, considering the geometry of the reference model searched
+in the scene, i.e. the blade, it is fundamental to pick wisely the interest
+points that will have a descriptor associated, as the blade is has a large area
+with a smooth surface and the neighborhood of each point on this section
+introduce similiar information, creating ambiguous descriptors that degrade the
+matching perfomance between the two point clouds.
+The samples in this area can only provide information about the translation in
+the direction perpendicular to the supporting plane and the two rotation
+associated with it, there is no information about the others DoF, making the
+alingment to ``slide'' from the correct transformation. Therefore, the interest
+points were sampled in order to keep the distribution of normals as large as
+possible \cite{Rusinkiewicz2001}. This approach enables the reduction of the
+number of points to be sampled and has a lower computional cost.
+
+
+
