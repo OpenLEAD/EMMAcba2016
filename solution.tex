@@ -32,13 +32,14 @@ manipulator for the application. Overall simu\-lations and analysis were perform
 Robotics Automation Virtual Environment (OpenRave) \cite{diankov2008openrave},
 an environment for simulating motion planning algorithms for robotics. There are
 several tools for dynamics simulation of robots, as Gazebo, V-Rep,
-Webots, MatLab/Simulink, and others \cite{ivaldi2014tools}. OpenRave stands out
+Webots, MatLab/Simulink, and others% \cite{ivaldi2014tools}
+. OpenRave stands out
 for having the following features: integral desgin for real-time control and
 execution monitoring; core functionality for kinematics operations and
 physics simulations; a network protocol allowing interpreted scripting languages
 like Octave and Matlab; built-in core tools and plugin interfaces for
 manipulation planning; standard plugins that allow testing of different planning
-algorithms and sensing systems; ROS compatibility.
+algorithms and sensing systems.
 
 The simulations involve runner's blade discretization, base
 positions computation for full blade cover, and robotic manipulator's kinematics
@@ -55,18 +56,17 @@ surface from each of these intersection points is taken to be the coating
 direction. As an uniform sampling of the box does not mean an uniform sampling
 of the blade, the box is oversampled and a 50~mm filter is applied, by a multidimensional search key with k-d tree.
 The samples are translated 230~mm in respect with their normal vectors,
-collision checks with the environment are made, and the feasible samples are
-named \textit{coating samples}. 
+and collision checks with the environment are made. 
 
 Base position computation is to uniformly sample the turbine's
 confined space and to calculate the required robotic manipulator's base
-positions to process all the \textit{coating samples},  considering angle and
+positions to process all the samples,  considering angle and
 distance tolerances. It is a brute force search: for each position, inverse
 kinematics are computed to determine the robotic manipulator's joint parameters that provide
 the desired positions and orientations of the end-effector.
 
 The kinematic approach described above is not enough to ensure that the robot
-will reach the \textit{coating samples}. Maximum accelerations, decelerations,
+will reach the samples. Maximum accelerations, decelerations,
 torques, and jacobian singularities should be investigated and compared to the robotic
 manipulator's specifications. The Newton-Euler method
 \cite{sciavicco2000differential} was adopted for torque computation: $\tau =
@@ -117,10 +117,7 @@ EMMA's base comprises two rails, forming two prismatic joints (P). The
 first, or primary rail, is parallel to the turbine axis, and it is responsible
 for the transportation of the robotic manipulator from hatch to blade. The
 secondary rail is parallel to the blade's surface, and it is assembled from the
-first rail by a rotational joint (R). A third prismatic joint
-is placed in the secondary rail for height adjustment of the robotic
-manipulator. These rails guarantee the full coating, as they allow the
-robotic manipulator movement in the confined space by a 4-DOF base, PRPP joints.
+first rail by a rotational joint (R).
 
 \begin{figure}
 	\centering
@@ -129,10 +126,11 @@ robotic manipulator movement in the confined space by a 4-DOF base, PRPP joints.
     \label{fig:base}
 \end{figure}
 
-The hatch limits the size of the rail in terms of weight and geometry, thus a
-modular concept was design, such that the small modular parts can be easily and
+The hatch and turbine' space can limit the size of the rail in terms of weight
+and geometry, thus a modular concept was design, such that the small modular parts can be easily and
 manually assembled inside the turbine. The base is a modular two parallel
-profiled rail with a four carriage setup  \cite{SKF_2013}. In this
+profiled rail with a four carriage setup%  \cite{SKF_2013}
+. In this
 configuration, the reaction moments of the base are cancelled by a force couple provided by each couple of
 carriages. The commercial modules are aluminum structures for corrosion resistance,
 lightweight, geometric flexibility, and modularity, as it is possible to
@@ -154,12 +152,13 @@ The draft tube and runner area are conical shape structures, curved and
 sloped. The environment modification, as wielding and drilling, should be
 avoided, thus properly fixing the base on the ground is a major challenge in
 EMMA project. The draft tube is composed of a ferromagnetic steel material,
-hence magnetic fixtures may be suitable for base attachment. 
+hence magnetic fixtures is suitable for base attachment. 
 
+\begin{comment}
 Common magnetic fixture products are temporary magnetic equipments used to hoist
 and transport materials in an industrial plant. In EMMA, it is used to attach
 and anchor the rail's modules to the ground.
-
+\end{comment}
 
 \subsection{Calibration}
 
