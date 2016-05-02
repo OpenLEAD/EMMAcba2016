@@ -114,7 +114,7 @@ first rail by a rotational joint (R).
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.8\columnwidth]{figs/mecanica/EMMA_Base_Secundaria_02.PNG}
+	\includegraphics[width=.9\columnwidth]{figs/mecanica/EMMA_Base_Secundaria_02.PNG}
     \caption{Customized base: primary and secondary rails.}
     \label{fig:base}
 \end{figure}
@@ -156,71 +156,68 @@ and anchor the rail's modules to the ground.
 \subsection{Calibration}
  
 In hard coating \textit{in situ} operations, the relative position between the
-robotic manipulator and the blade is not fixed, thus information from the
-environment must be aquired in order to identify and localize the elements of
-interest. The system calibration consists in the indentification of the
-manipulator and blade, and their pose estimation in respect to the turbine
-interior. Due the light conditions inside the hydraulic circuit  a 3D laser
-scanner is used to gather tridimensional information of the environment,
-including the robot manipulator and base. The calibration process was divided
-in two different approach depending on the element to be localized and its
-caracteristics. The possibility to attach or install markers in known positions
-dictated the strategies to be chosen, therefore the calibration is separeted in
-the pose estimation of the robot and of the blade, as follows.
- 
+robotic manipulator and the blade is not fixed. The system calibration consists
+in the indentification of the manipulator and blade, and their pose estimation
+in respect to the turbine interior. Due to the light conditions inside the
+hydraulic circuit a 3D laser scanner is used to gather tridimensional
+information of the environment, including the robotic manipulator and base. 
+
+\begin{comment}
+The calibration process was divided in two different approach depending on the
+element to be localized and its caracteristics. The possibility to attach or
+install markers in known positions dictated the strategies to be chosen,
+therefore the calibration is separeted in the pose estimation of the robot and
+of the blade, as follows.
+\end{comment}
+   
 The attachment of markers on the robotic manipulator can be performed with high
 precision and repeatability, thus reflective spheres were chosen as reference
 points in the process of robot localization. These spheres are identified inside
-the point cloud by a 3D Hough Transform method \cite{camurri20143d}. The 3D
-Hough Transform, as its more commom two dimensional counterpart (2D Hough
-Transform), is a search on the (discretized) parametric space of the object. A
-sphere has a four dimensional parameter space, tree for the position of its
-center and one for its radius. For each point on the point cloud, it is assined
-a collection of voxels on the discretized parametric space (corresponding to the
-possible spheres passing through that point). As in a voting process, those
-voxels which have the greatest number of point assined to define parameters of
-the most probable spheres. There might be computational issues depending the
-size of the parameter space, but it can be mitigated by previous knowledge on
-the expected radius of the spheres and viable region for the robot inside the
-enviroment.
+the point cloud by the 3D Hough Transform method \cite{camurri20143d}. The 3D
+Hough Transform, as the 2D Hough Transform, is the search of an object on the
+(discretized) parametric space. A sphere has four parameters: three for the
+position of its center, and one for its radius. For each point on the point
+cloud, it is assigned a collection of voxels on the discretized parametric
+space, corresponding to the possible spheres passing through that point. As in
+a voting process, the voxels with the greatest number of points assigned to
+define the parameters of the most probable spheres. There might be computational
+issues depending the size of the parameter space, but it can be mitigated by
+previous knowledge on the expected radius of the spheres and viable region for
+the robot inside the enviroment.
 
-On the other hand, to install any marker on the
-blade would require its own calibration to ensure a consistent reference point,
-therefore the pose estimation of the blade must rely only on the intrinsec
-properties of the its surface geometry. The information must be extracted from
-the point cloud provided by the 3d laser sensor and compared to a reference
-model previously stored. The characteristics of the point clouds are represented
+Fixing any marker on the blade would require its own calibration to ensure a
+consistent reference point, thus the pose estimation of the blade must rely only
+on the intrinsec properties of its surface geometry. The information must be extracted from
+the point cloud provided by the 3D laser sensor and compared to a reference
+model previously stored. The characteristics of the point cloud are represented
 by local descriptors, i.e., each point of interest on the blade is associated
 with the information about its local neighborhood. Given the
 sets of features,  it is possible to determine the correspondence between the
 two sets. If enough correspondences are found in the scene, above a threshold,
 the blade is identified and the position is determined \cite{Tombari2010a}. 
 
-The computation of the descriptors is expensive and a subsampling of the point
-clouds, both model and the scene, is perfomed due the high density provided by
-the sensor. However, considering the geometry of the reference model searched
-in the scene, i.e. the blade, it is fundamental to pick wisely the interest
-points that will have a descriptor associated, as the blade is has a large area
-with a smooth surface and the neighborhood of each point on this section
+As the blade is a large and smooth surface, it is fundamental to
+pick wisely the interest points, since the neighborhood of each point may
 introduce similiar information, creating ambiguous descriptors that degrade the
-matching perfomance between the two point clouds.
-The samples in this area can only provide information about the translation in
-the direction perpendicular to the supporting plane and the two rotation
-associated with it, there is no information about the others DoF, making the
+matching perfomance between the point clouds. The samples in this area can only
+provide information about the translation in the direction perpendicular to the supporting plane and the two rotation
+associated with it, there is no information about the others DOF, making the
 alingment to ``slide'' from the correct transformation. Therefore, the interest
 points were sampled in order to keep the distribution of normals as large as
 possible \cite{Rusinkiewicz2001}. This approach enables the reduction of the
-number of points to be sampled and has a lower computional cost.
+number of points to be sampled and has a lower computional cost, besides a
+subsampling of the point clouds, both model and the scene, is perfomed due to
+the high density provided by the sensor. 
 
 Once the the descriptors were estimated the correspondences between them are
 determined if the euclidean distance between a descriptor in the scene and model
 is lower than a threshold. Each Correspondence vote, then, for a specific pose
-and scale factor in the Hough space. After the an instance of the model is
+and scale factor in the Hough space. After an instance of the model is
 found, it is performed an ICP matching with the full resolution point clouds to
 realize a fine alignment and compensate any discrepancy introduced by the
 sampling. With the position of the blade and the manipulator in respect to a
-common coordinate system, i.e. the origin of the laser sensor, it is possible to
-determine the transformation between them and this information can be fed to the
+common coordinate system, i.e., the origin of the laser sensor, it is possible
+to determine the transformation between them and this information can be fed to the
 trajectory and coverage algorithms.
 
 
