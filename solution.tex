@@ -10,46 +10,39 @@
 The conceptual solution of EMMA is a mid-sized robotic manipulator with a
 modular rail base. As the manipulator cannot fully cover the blade's surface in
 a fixed position, and the robot locomotion is complex in the turbine's
-environment, a customized rail should provide extra degrees of freedom (DOF) to
-the system. EMMA aims to be a generic solution to bulb turbines, being modular,
-and versatile. It is an autonomous system for hard coating applications, thus
-the following system's elements will be presented: the robotic manipulator; the
-customized base; and the robot calibration.
+environment, a customized rail is designed to provide extra degrees of
+freedom (DOF) to the system. EMMA aims to be a generic solution to large bulb
+type turbines, being modular, and versatile. The following system's elements
+will be presented: the robotic manipulator; the customized base; and the robot
+calibration.
 
 
 \subsection{Robotic Manipulator}\label{manipulator}
-Trying to propose an \textit{in situ} hard coating solution similar to
-the \textit{ex situ} solution is a natural thought. Therefore, the first step of
-EMMA's development was the research for industrial robotic manipulators. The
-HVOF coating requirements and environment constraints demand a mid-sized
-robotic manipulator, as seen in Sec.~\ref{problem} a large-sized one would not
+The HVOF coating requirements and environment constraints demand a mid-sized
+robotic manipulator (Sec.~\ref{hvof}), as a large-sized one would not
 be able to move inside the confined space, and a small-sized manipulator would not
 have the required payload and speed. In EMMA's project, the
 robotic manipulator will be responsible for the coating application, precision, and tool handling.
 
-A market survey was conducted to determine the most suitable robotic
-manipulator for the application. Overall simu\-lations and analysis were performed using the Open
-Robotics Automation Virtual Environment (OpenRave) \cite{diankov2008openrave},
+A market survey is conducted to determine the most suitable robotic
+manipulator for the application. Overall simu\-lations and analysis were performed using the OpenRave \cite{diankov2008openrave},
 an environment for simulating motion planning algorithms for robotics. There are
-several tools for dynamics simulation of robots, as Gazebo, V-Rep,
+several tools for dynamics simulation of robots: Gazebo, V-Rep,
 Webots, MatLab/Simulink, and others% \cite{ivaldi2014tools}
-. OpenRave stands out
-for having the following features: integral desgin for real-time control and
-execution monitoring; core functionality for kinematics operations and
+. OpenRave stands out for having the following features: integral design for
+real-time control and execution monitoring; core functionality for kinematics operations and
 physics simulations; a network protocol allowing interpreted scripting languages
 like Octave and Matlab; built-in core tools and plugin interfaces for
 manipulation planning; standard plugins that allow testing of different planning
 algorithms and sensing systems.
 
 The simulations involve runner's blade discretization, base
-positions computation for full blade cover, and robotic manipulator's kinematics
+position computations for full blade cover, and robotic manipulator's kinematics
 and dynamics. 
 
 The blade's surface discretization is an uniform sampling to
-determine where to the coating directions should be. However, sampling the
-actual geometric surface can lead to unwanted results due to possible
-concavities. A simpler approach is to take the bounding box of the blade and
-sample its surface uniformly. Once the
+determine where to the coating directions should be. The current approach is to
+take the bounding box of the blade and sample its surface uniformly. Once the
 surface of the box is sampled, the intersection of the blade and a ray
 originating from each point going inward is taken. The normal of the blade's
 surface from each of these intersection points is taken to be the coating
@@ -58,10 +51,10 @@ of the blade, the box is oversampled and a 50~mm filter is applied, by a multidi
 The samples are translated 230~mm in respect with their normal vectors,
 and collision checks with the environment are made. 
 
-Base position computation is to uniformly sample the turbine's
+Base position computations are to uniformly sample the turbine's
 confined space and to calculate the required robotic manipulator's base
-positions to process all the samples,  considering angle and
-distance tolerances. It is a brute force search: for each position, inverse
+positions to process all the samples (blade discretization),  considering angle
+and distance tolerances. It is a brute force search: for each position, inverse
 kinematics are computed to determine the robotic manipulator's joint parameters that provide
 the desired positions and orientations of the end-effector.
 
