@@ -24,13 +24,11 @@ and dynamics.
 A survey of industrial robotic manipulators was conducted for Jirau's turbine.
 Regarding the runner's blade dimension, among the analyzed mid-sized robotic
 manipulators, the Yaskawa Motoman MH12 robot was chosen due to its satisfactory
-workspace, and versatility. Blade discretization is performed with the
-OpenRave grasping module in a Jirau runner's blade CAD model. The
-Fig.~\ref{fig:discretization} shows the \textit{coating samples}, and
-Fig.~\ref{fig:coating} shows the manipulator workspace, where
-black dots are coated points and blue dots are coated points with angle
-tolerance. The \textit{reachable samples} relate coating samples with base
-positions, thus it is possible to create a coating strategy and to select the
+workspace, and versatility. Blade discretization is performed in a Jirau
+runner's blade CAD model, Fig.~\ref{fig:discretization} shows the blade's
+samples, and Fig.~\ref{fig:coating} shows the manipulator workspace, where
+black dots are coated points and blue dots are coated points with the angle
+tolerance. Thus it is possible to create a coating strategy and to select the
 simplest base positions. The result is the minimum required positions for the
 robotic manipulator's base.
 
@@ -43,14 +41,14 @@ robotic manipulator's base.
 	position.}
 \end{figure}
 
-Comparing estimated torques with the technical
-specifications, dynamic simulations's results showed that the robotic
-manipulator should be placed at, at least, 1400~mm distance from the blade's
-surface plane. Placing the robot nearer would enhance the robotic manipulator's
-workspace, but it would increase also the torques. The Fig.~\ref{fig:torques}
-is an example of the robotic manipulator in a close range, 900~mm distance from the
-blade. It shows joints' torques in a color gradient way, where red dots
-represents small magnitudes and blue dots are large.
+Comparing estimated torques with the technical specifications, dynamic
+simulations' results showed that the robotic manipulator should be placed at,
+at least, 1400~mm distance from the blade's surface plane. Placing the robot
+nearer would enhance the robotic manipulator's workspace, but it would increase
+also the torques. The Fig.~\ref{fig:torques} is an example of the robotic
+manipulator in a close range, 900~mm distance from the blade. It shows joints'
+torques in a color gradient way, where red dots represents small magnitudes and
+blue dots are large.
 
 \begin{figure}
 	\centering
@@ -62,7 +60,7 @@ represents small magnitudes and blue dots are large.
 Despite being able to coat approximately 50\% of the blade on a fixed
 position, kinematic and dynamic analysis show that the MH12 robot cannot fully
 cover it vertically or horizontally, demanding extra 2-DOF along the blade's
-surface. The base computation reveals that the blade's top
+surface. The base position computations reveal that the blade's top
 extremities require a specific base position, reachable
 with a primary rail between the blades. Therefore, the MH12 robot will require
 at least four positions along the blade and one position on a primary
