@@ -188,30 +188,30 @@ the robot inside the enviroment.
 Fixing any marker on the blade would require its own calibration to ensure a
 consistent reference point, thus the pose estimation of the blade must rely only
 on the intrinsec properties of its surface geometry. The information must be extracted from
-the point cloud provided by the 3D laser sensor and compared to a reference
-model previously stored. The characteristics of the point cloud are represented
+the point clouds provided by the 3D laser sensor and compared to a reference
+model previously stored. The characteristics of the point clouds are represented
 by local descriptors, i.e., each point of interest on the blade is associated
 with the information about its local neighborhood. Given the
 sets of features,  it is possible to determine the correspondence between the
 two sets. If enough correspondences are found in the scene, above a threshold,
 the blade is identified and the position is determined \cite{Tombari2010a}. 
 
-As the blade is a large and smooth surface, it is fundamental to
-pick wisely the interest points, since the neighborhood of each point may
+As the blade is a large and smooth surface, the neighborhood of each point may
 introduce similiar information, creating ambiguous descriptors that degrade the
-matching perfomance between the point clouds. The samples in this area can only
-provide information about the translation in the direction perpendicular to the supporting plane and the two rotation
-associated with it, there is no information about the others DOF, making the
-alingment to ``slide'' from the correct transformation. Therefore, the interest
-points were sampled in order to keep the distribution of normals as large as
-possible \cite{Rusinkiewicz2001}. This approach enables the reduction of the
-number of points to be sampled and has a lower computional cost, besides a
-subsampling of the point clouds, both model and the scene, is perfomed due to
-the high density provided by the sensor. 
+matching perfomance, thus it is fundamental to wisely pick the interest points.
+The samples provide information about perpendicular translation to the
+supporting plane, and the two rotations associated with it, thus no
+information about the other DOFs, making the alingment to ``slide'' from the
+correct transformation. Therefore, the interest points were sampled in order to
+diversify the normal vectors' directions as much as possible
+\cite{Rusinkiewicz2001}. This approach enables the reduction of the number of
+points to be sampled and has a lower computional cost, besides a subsampling of
+the point clouds, both model and the scene, is perfomed due to the high density
+provided by the sensor.
 
 Once the the descriptors were estimated the correspondences between them are
 determined if the euclidean distance between a descriptor in the scene and model
-is lower than a threshold. Each Correspondence vote, then, for a specific pose
+is lower than a threshold. Each correspondence vote, then, for a specific pose
 and scale factor in the Hough space. After an instance of the model is
 found, it is performed an ICP matching with the full resolution point clouds to
 realize a fine alignment and compensate any discrepancy introduced by the
