@@ -190,23 +190,24 @@ consistent reference point, thus the pose estimation of the blade must rely only
 on the intrinsec properties of its surface geometry. The information must be extracted from
 the point cloud (the scene) provided by the 3D laser sensor and
 compared to a reference model previously stored. The characteristics of the point clouds are represented
-by local descriptors, i.e., each point of interest on the blade is associated
-with the information about its local neighborhood. Given the
-sets of features,  it is possible to determine the correspondence between the
-two sets. If enough correspondences are found in the scene, above a threshold,
-the blade is identified and the position is determined \cite{Tombari2010a}. 
+by local descriptors, i.e., each interest point on the blade is associated
+with a piece of information about its local neighborhood. Given the
+sets of features from the model and the scence,  it is possible to determine the
+correspondence between their descriptors. If enough correspondences are found
+in the scene, above a threshold, the blade is identified and the position can be
+determined \cite{Tombari2010a}.
 
 As the blade is a large and smooth surface, the neighborhood of each point may
 introduce similiar information, creating ambiguous descriptors that degrade the
 matching perfomance, thus it is fundamental to wisely pick the interest points.
-The samples provide information about perpendicular translation to the
-supporting plane, and the two rotations associated with it, thus no
+The ambiguous descriptors provide information about perpendicular translation to
+the supporting plane, and the two rotations associated with it, thus no
 information about the other DOFs, making the alingment to ``slide'' from the
 correct transformation. Therefore, the interest points were sampled to
-diversify the normal vectors' directions \cite{Rusinkiewicz2001}. This approach
-reduces the number of samples, lowering the computional cost, besides a
-subsampling of the point clouds is perfomed due to the high density provided by
-the sensor.
+diversify the normal vectors' directions \cite{Rusinkiewicz2001}, allowing to
+reduce the number of samples to have a descriptor associated, when compared to a
+uniform sampling, and maintaning the computational cost low.
+
 
 Once the descriptors were estimated, the correspondences are determined if the
 euclidean distance between a descriptor in the scene and model is lower than a

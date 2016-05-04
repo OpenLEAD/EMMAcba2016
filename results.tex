@@ -118,9 +118,10 @@ payload capacity.
 \subsection{Calibration analysis}
 
 In order to test the calibration algorithm for the blades, the turbine
-environment and the robotic manipulator were simulated with the toolbox Blensor \cite{Gschwandtner11b}. 
-The blade model, however, was acquired in a field test by a 3D laser scanner for
-a better representantion of the actual hidraulic profile.
+environment and the robotic manipulator were simulated with help of the toolbox
+Blensor \cite{Gschwandtner11b} and based on the technical drawings from the
+powerplant. The blade model, however, was acquired in a field test by a 3D laser
+scanner for a better representantion of the actual hidraulic profile.
 
 The laser sensor was modeled following manufacturer's technical
 specifications, and different scenes were generated for several sensor
@@ -137,3 +138,16 @@ represent the matching features between the model and the scene.
     \label{fig:calibration}
 \end{figure}
 
+The Fig. \ref{fig:histogram} exemplifies the error or distance distribution
+to the closest point from the scene to each point of the model. The mean
+distance between each swipe of the laser scan is $9~mm$ and the
+RMS error is $4~mm$, which is consistent as the half of the resolution of the
+point clouds.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.95\columnwidth]{figs/results/histogram}
+    \caption{Histogram of the error between the model and reference scene point
+    to point.}
+    \label{fig:histogram}
+\end{figure}
