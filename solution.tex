@@ -28,20 +28,20 @@ A market survey is conducted to determine the most suitable robotic
 manipulator for the application. Overall simu\-lations and analysis were performed using the OpenRave \cite{diankov2008openrave},
 an environment for simulating motion planning algorithms for robotics. There are
 several tools for dynamics simulation of robots: Gazebo, V-Rep,
-Webots, MatLab/Simulink, and others% \cite{ivaldi2014tools}
+Webots, and others% \cite{ivaldi2014tools}
 . OpenRave stands out for having the following features: integral design for
 real-time control and execution monitoring; core functionality for kinematics operations and
-physics simulations; a network protocol allowing interpreted scripting languages
-like Octave and Matlab; built-in core tools and plugin interfaces for
-manipulation planning; standard plugins that allow testing of different planning
-algorithms and sensing systems.
+physics simulations; a network protocol allowing interpreted scripting
+languages; built-in core tools and plugins for manipulation planning and
+sensing systems.
 
 The simulations involve runner's blade discretization, base
-position computations for full blade cover, and robotic manipulator's kinematics
+position computations for full cover, and robotic manipulator's kinematics
 and dynamics. 
 
 The blade's surface discretization is an uniform sampling to
-determine where to the coating directions should be. The current approach is to
+determine where to the coating directions should be. The current ; standard plugins that allow testing of different planning
+algorithms and sensing systemsapproach is to
 take the bounding box of the blade and sample its surface uniformly. Once the
 surface of the box is sampled, the intersection of the blade and a ray
 originating from each point going inward is taken. The normal of the blade's
