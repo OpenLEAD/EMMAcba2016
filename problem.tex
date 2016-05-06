@@ -5,13 +5,13 @@ phenomena, resulting in hydraulic profile deformation, thus efficiency
 reduction. The High Velocity Oxygen Fuel (HVOF) coating is a preventive
 solution for erosion, and creates a lamellar structure. 
 
-The runner's blades HVOF is a 2000~hp power process which consists of
+The HVOF is a 2000~hp power process which consists of
 spraying coating particles by an 8~kg spray gun, through a flame with mixed
 hazardous gases. To achieve the best coating layer, the spray gun should be at
-a fixed 210~mm to 240~mm distance and $90^o \pm 30^o$ angle, in respect to the
-metallic surface plane of the blade; the gun should move with 40~m/min speed
-along the blade; and the precision (or coating step) should be 3~mm for a
-regular full blade cover \cite{li2002effect}. The
+a fixed 210~mm to 240~mm distance, and $90^\circ \pm 30^\circ$ angle, in respect
+to the metallic surface plane of the blade; the gun should move at 40~m/min
+speed along the path; and the coating step (nozzle's diameter) should be 3~mm
+for a regular full blade cover \cite{li2002effect}. The
 common solution which meets the requirements for \textit{ex situ} HVOF coating
 is a robotic manipulator with a blade-sized workspace in a fixed position.
 
@@ -20,12 +20,10 @@ is a robotic manipulator with a blade-sized workspace in a fixed position.
 The problem is to design a robotic system for \textit{in situ}
 hydropower runner's blades. The system must overcome turbine's environmental
 aspects, such as, the confined space and turbine's access, the slippery and
-sloping floor, and the unfriendly atmospheric conditions. A large-sized industrial
-robotic manipulator is not suitable for the operation, as the robot
-transportation, \textit{in situ} locomotion and placement is not possible due
-to robot dimensions. The Jirau's turbine is the case study of EMMA,
-thus a 3D CAD model was built with SolidWorks\raisebox{1ex}{\textregistered}
-for simulation and solution analysis.
+sloping floor, and the unfriendly atmospheric conditions. Besides the mechanical
+challenges (locomotion and base rigidity), there are several control and
+calibration problems, as path planning, localization and mapping.
+
 
 \begin{comment}
 
@@ -45,11 +43,3 @@ for simulation and solution analysis (Fig.~\ref{fig::ambiente3d}).
 \end{figure}
 
 \end{comment}
-
-EMMA must comply with the HVOF requirements, it must overcome the environment
-constraints and logistical challenges, such as equipment
-and robot transportation, \textit{in situ} locomotion, fixation, and base
-rigidity; it must comprise a calibration process for localization and
-mapping; and the system must compute the coating strategy, the coating
-trajectory planning, and control.
-
