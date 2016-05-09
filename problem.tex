@@ -18,11 +18,27 @@ is a robotic manipulator with a blade-sized workspace in a fixed position.
 \section{The problem}\label{problem}
 
 The problem is to design a robotic system for \textit{in situ}
-hydropower runner's blades. The system must overcome turbine's environmental
-aspects, such as, the confined space and turbine's access, the slippery and
-sloping floor, and the unfriendly atmospheric conditions. Besides the mechanical
-challenges (locomotion and base rigidity), there are several control and
-calibration problems, as path planning, localization and mapping.
+hydropower runner's blades. Accessibility is a major problem: the robot must be
+brought to the turbine through a hatch; and it must operate in the confined,
+curved and slippery environment of the turbine at unfriendly atmospheric
+conditions. The mechanical challenges are robot locomotion, base rigidity, and
+fixation. Besides, there are several control and calibration problems, as
+trajectory planning, and robot localization.
+
+Regarding calibration, the relative position between the manipulator and the
+blade is not fixed. The system calibration consists in the identification of
+the manipulator and blade, and their pose estimation in respect to the turbine
+interior. Due to the environment's light conditions, a 3D laser sensing
+technology should be used to map the topography of the blade, and the robotic
+system. 
+
+Large-sized manipulators are not suitable for \textit{in situ} operations, due
+to the accessibility, and conventional compact manipulators do not
+have the required work envelope or payload for the task. Therefore,
+customized or mid-sized manipulators should be investigated by kinematics and
+dynamics simulations. Besides, the modeling of curvilinear space,
+the automatically trajectory generation, and the robot position and velocity
+control comprise the robot control strategy.
 
 
 \begin{comment}
