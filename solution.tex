@@ -108,14 +108,15 @@ the inverse dynamics in OpenRave.
 
  
 
-\subsection{Base}
+\subsection{Mechanical system}
 % 0.75 pages
 
-EMMA's base comprises two rails, forming two prismatic joints (P). The
-first, or primary rail, is parallel to the turbine axis, and it is responsible
-for the transportation of the robotic manipulator from hatch to blade. The
-secondary rail is parallel to the blade's surface, and it is assembled from the
-first rail by a rotational joint (R). 
+EMMA's mechanical system is non-actuated rails for
+manipulator's base transportation, positioning and fixation. It comprises two
+rails, forming two prismatic joints (P). The first, or primary rail, is parallel to the turbine axis, and it is
+responsible for the transportation of the manipulator from hatch to close
+to the blade. The secondary rail is assembled from the first by a
+rotational joint (R), which allows to position the upper rail parallel to the blade's surface.
 
 \begin{figure}
 	\centering
@@ -124,27 +125,24 @@ first rail by a rotational joint (R).
     \label{fig:base}
 \end{figure}
 
-The hatch and turbine' space can limit the size of the rail in terms of weight
-and geometry, thus a modular concept was design, such that the small modular parts can be easily and
-manually assembled inside the turbine. The base is a modular two parallel
-profiled rail with a four carriage setup%  \cite{SKF_2013}
+The hatch and turbine' space limit the size of the rail in terms of weight
+and geometry, thus a modular concept was adopted, such that the small modular
+parts can be easily and manually assembled inside the turbine. The rails are a
+modular two parallel profiled rail with a four carriage setup%  \cite{SKF_2013}
 . In this
 configuration, the reaction moments of the base are cancelled by a force couple provided by each couple of
 carriages. The commercial modules are aluminum structures for corrosion resistance,
-lightweight, geometric flexibility, and modularity, as it is possible to
-increase/decrease the rail length/width/height by changing few parts or adding
+lightweight, geometric flexibility, and modularity, which make possible to
+modify the rail configuration by changing few parts or adding
 anchor arms.
 
-The resulting base is a slender and lightweight frame, such that a careful
+The resulting rail is a slender and lightweight frame, thus a careful
 analysis is necessary to evaluate the structural integrity and rigidity in
-respect to the dynamic loads of the robotic manipulator. A Finite Element
-Analysis (FEA) was performed to study the stresses, strains and resultant forces
-along the structure. FEA is also used to size the frame components, such as
-the profile's size, and to size the anchors, its directions, and attachment to
-provide the greater base's rigidity. The rigidity is a major concern, it is
-required for the hard coating process, since a non-rigid base propagates
-vibrations to the robotic manipulator's end-effector with high amplitudes, which
-may compromise coating quality.
+respect to the dynamic loads of the manipulator. A Finite Element
+Analysis (FEA) was performed to evaluate the stresses, strains and resultant
+forces along the structure. FEA is also used to specify the frame components,
+such as the profile's size, and anchors quantity, dimensions, directions,
+and attachment points to provide the greatest stiffness. 
 
 The draft tube and runner area are conical shape structures, curved and
 sloped. The environment modification, as wielding and drilling, should be
@@ -160,13 +158,6 @@ and anchor the rail's modules to the ground.
 
 \subsection{Calibration}
  
-In hard coating \textit{in situ} operations, the relative position between the
-manipulator and the blade is not fixed. The system calibration consists in the
-indentification of the manipulator and blade, and their pose estimation in
-respect to the turbine interior. Due to the light conditions inside the
-hydraulic circuit a 3D laser scanner is used to gather 
-information of the environment, including the  manipulator and base.
-
 \begin{comment}
 The calibration process was divided in two different approach depending on the
 element to be localized and its caracteristics. The possibility to attach or

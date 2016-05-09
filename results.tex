@@ -8,11 +8,9 @@
 
 % Intro
 
-Simulations and experimental tests were performed to verify the proposed
-concepts. The following results were divided according to the EMMA system's
-elements introduced in Sec.~\ref{solution}. The Jirau's dam is the case study of
-EMMA, thus simulations and field tests were conducted in Jirau's environment.
-
+Simulations and experimental tests at Jirau's facility were performed to verify
+the proposed concepts. The results are divided according to the EMMA system's
+elements introduced in Sec.~\ref{solution}. 
 
 \subsection{Robotic manipulator analysis}\label{sec::man_analysis}
 
@@ -21,9 +19,9 @@ manipulator were implemented with OpenRave, and consist of the following steps:
 blade's surface discretization; base position computation; kinematics
 and dynamics.
 
-A survey of industrial robotic manipulators was conducted for Jirau's turbine.
-Regarding the runner's blade dimension, among the analyzed mid-sized robotic
-manipulators, the Yaskawa Motoman MH12 robot was chosen due to its satisfactory
+A survey of off-the-shelf manipulators was conducted for
+Jirau's turbine. Regarding the runner's blade dimension, among the analyzed
+mid-sized robotic manipulators, the Yaskawa Motoman MH12 robot was chosen due to its satisfactory
 workspace, and versatility. Blade discretization is performed in a Jirau
 runner's blade CAD model, Fig.~\ref{fig:discretization} shows the blade's
 samples, and Fig.~\ref{fig:coating} shows the manipulator workspace, where
@@ -34,11 +32,12 @@ robotic manipulator's base.
 
 \begin{figure}
 	\centering
-	\subfigure[]{\includegraphics[width=0.46\columnwidth]{figs/results/blade_grid1.png}\label{fig:discretization}}
+	\subfigure[Blade
+	discretization]{\includegraphics[width=0.46\columnwidth]{figs/results/blade_grid1.png}\label{fig:discretization}}
 	\quad
-	\subfigure[]{\includegraphics[width=0.47\columnwidth]{figs/results/mh12_coating2.png}\label{fig:coating}}
-	\caption{Blade discretization and manipulator workspace for a fixed
-	position.}
+	\subfigure[Manipulator
+	workspace]{\includegraphics[width=0.47\columnwidth]{figs/results/mh12_coating2.png}\label{fig:coating}}
+	\caption{Blade discretization and manipulator workspace for a fixed position.}
 \end{figure}
 
 Comparing estimated torques with the technical specifications, dynamic
@@ -70,7 +69,7 @@ with a primary rail between the blades. Therefore, the MH12 robot will require
 at least four positions along the blade and one position on a primary
 rail, between blades. 
 
-\subsection{Base analysis}
+\subsection{Mechanical system analysis}
 
 In the specific case of Jirau, the secondary rail is customized with a third
 prismatic joint for height adjustment of the robotic manipulator. The primary
