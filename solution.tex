@@ -28,29 +28,26 @@ modular, and versatile.
 
 \subsection{Robotic Manipulator}\label{manipulator}
 The HVOF coating requirements and environment constraints demand a mid-sized
-robotic manipulator (Sec.~\ref{hvof}), as a large-sized one would not
-be able to move inside the confined space, and a small-sized manipulator would not
-have the required payload and speed. In EMMA's project, the
-robotic manipulator will be responsible for the coating application, precision, and tool handling.
+robotic manipulator (Sec.~\ref{hvof}). The EMMA's manipulator will be responsible
+for the coating application and accuracy.
 
-A market survey is conducted to determine the most suitable robotic
-manipulator for the application. Overall simu\-lations and analysis were performed using the OpenRave \cite{diankov2008openrave},
-an environment for simulating motion planning algorithms for robotics. There are
-several tools for dynamics simulation of robots: Gazebo, V-Rep,
-Webots, and others% \cite{ivaldi2014tools}
-. OpenRave stands out for having the following features: integral design for
-real-time control and execution monitoring; core functionality for kinematics operations and
-physics simulations; a network protocol allowing interpreted scripting
-languages; built-in core tools and plugins for manipulation planning and
-sensing systems.
+A survey was conducted to determine the most adaptable off-the-shelf manipulator
+for the application. Overall simu\-lations and analysis were
+performed using the OpenRave \cite{diankov2008openrave}, an environment for
+simulating motion planning algorithms for robotics. There are several tools for
+dynamics simulation of robots: Gazebo, V-Rep, Webots, and others%
+% \cite{ivaldi2014tools}
+. OpenRave was selected because of its integral design for real-time control
+and execution monitoring, the core functionality for kinematics operations and
+physics simulations, and the ROS support, simplifying future software
+integration.
 
-The simulations involve runner's blade discretization, base
-position computations for full cover, and robotic manipulator's kinematics
-and dynamics. 
+The simulations were performed for manipulator's workspace analysis, and maximum
+torque estimation. It involves runner's blade discretization, manipulator's base
+position computations for full cover, and robotic manipulator's kinematics and dynamics. 
 
 The blade's surface discretization is an uniform sampling to
-determine where to the coating directions should be. The current ; standard plugins that allow testing of different planning
-algorithms and sensing systemsapproach is to
+determine where to the coating directions should be. The current approach is to
 take the bounding box of the blade and sample its surface uniformly. Once the
 surface of the box is sampled, the intersection of the blade and a ray
 originating from each point going inward is taken. The normal of the blade's
@@ -58,9 +55,9 @@ surface from each of these intersection points is taken to be the coating
 direction. As an uniform sampling of the box does not mean an uniform sampling
 of the blade, the box is oversampled and a 50~mm filter is applied, by a multidimensional search key with k-d tree.
 The samples are translated 230~mm in respect with their normal vectors,
-and collision checks with the environment are made. 
+and collision with the environment are checked. 
 
-Base position computations are to uniformly sample the turbine's
+Manipulator's base position computations are to uniformly sample the turbine's
 confined space and to calculate the required robotic manipulator's base
 positions to process all the samples (blade discretization),  considering angle
 and distance tolerances. It is a brute force search: for each position, inverse
@@ -69,20 +66,19 @@ the desired positions and orientations of the end-effector.
 
 The kinematic approach described above is not enough to ensure that the robot
 will reach the samples. Maximum accelerations, decelerations,
-torques, and jacobian singularities should be investigated and compared to the robotic
-manipulator's specifications. The Newton-Euler method
-\cite{sciavicco2000differential} was adopted for torque computation: $\tau =
-M(q)\alpha + C(q,\omega)\omega + G(q)$, where $\tau$ is the joints' torques,
-$M$ is the matrix of links' masses and moments of inertia, $\alpha$ is the
-joints' accelerations, $q$ is the joints' angles, $\omega$ is the joints'
-velocities, $C$ is the Coriolis matrix, and $G$ is the gravity vector.
+torques, and singularities should be investigated and compared to the
+manipulator's specifications. To do this, we employ the well know relation:
+$\tau = M(q)\ddot{q} + C(q,\dot{q})\dot{q} + G(q)$
+\cite{sciavicco2000differential}, where $\tau$ is the joints' torques, $M$ is
+the matrix of links' masses and moments of inertia, $q$ is the joints' angles,
+$C$ is the Coriolis matrix, and $G$ is the gravity vector.
 
-In the dynamic approach, $M$ was estimated by the robotic manipulator's CAD
-model. The angular accelerations are derived by differential kinematics:
-$\alpha=J^+(a-\omega^TH\omega)$, where $H$ is the Hessian matrix
+$M$ was estimated by the robotic manipulator's CAD model. The angular
+accelerations are derived by differential kinematics:
+$\alpha=J^+(a-\dot{q}^TH\dot{q})$, where $H$ is the Hessian matrix
 \cite{hourtash2005kinematic}, $a=\ddot{X}$ is the linear accelerations, and $J$
 is the Jacobian matrix. Therefore, torques can be analytically estimated with
-the inverse dynamics in OpenRave. 
+the inverse dynamics in OpenRave.
 
 % The typical path of HVOF coating is a zigzagging trajectory,
 % i.e., it is a deceleration and acceleration process with direction changes. As
