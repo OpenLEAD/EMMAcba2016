@@ -193,9 +193,9 @@ the parameters of the most probable spheres. There might be computational issues
 depending on the size of the parameter space, but it can be mitigated by
 exploiting previous knowledge regarding the expected radius and viable region
 for the robot inside the enviroment. Further improvements can be achieved
-through the use of the normal vector at each point, by exploiting the fact that
-the center of the sphere is in the direction of the normal, thus reducing to two
-the number of assigned voxels per point.
+through the use of the normal vector at each point, exploiting the fact that
+the center of the sphere is in the direction of the normal, thus reducing the
+number of assigned voxels per point and in consequence the computational effort.
 
 Fixing any marker on the blade would require its own calibration to ensure a
 consistent reference point, thus the pose estimation of the blade must rely only
