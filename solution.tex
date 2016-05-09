@@ -7,19 +7,23 @@
 %Estevão/Renan: Solucao-Shutter
 %TODO Gabriel: Solucao-Calibration
 
-A large-sized industrial manipulator is not suitable for the operation, as the
-robot transportation, \textit{in situ} locomotion and placement is not possible due to robot dimensions. 
-The conceptual solution of EMMA is a mid-sized robotic manipulator with a
-modular rail base. As the manipulator cannot fully cover the blade's surface in
-a fixed position, and the robot locomotion is complex in the turbine's
-environment, a customized rail is designed to provide extra degrees of
-freedom (DOF) to the system. EMMA aims to be a generic solution to large bulb
-type turbines, being modular, and versatile. The following system's elements
-will be presented: the robotic manipulator; the customized base; and the robot
-calibration. The Jirau's turbine is the case study of EMMA,
-thus a 3D CAD model was built with SolidWorks\raisebox{1ex}{\textregistered}
-for simulation and solution analysis. 
+EMMA robotic technology is described in this section. The following system's
+elements will be presented: the robotic manipulator; the customized modular
+base; and the robot calibration. 
 
+\begin{comment}
+The Jirau's t urbine is the case study of
+EMMA, thus a 3D CAD model was built with
+SolidWorks\raisebox{1ex}{\textregistered} for simulation and solution analysis.
+
+Its hardware is composed
+of a mid-sized robotic manipulator, a customized modular rail base, and
+vision-based sensors. As the manipulator cannot fully cover the blade's surface in a fixed
+position, and the robot locomotion is complex in the turbine's environment, a
+customized rail is designed to provide extra degrees of freedom (DOF) to the
+system. EMMA aims to be a generic solution to large bulb type turbines, being
+modular, and versatile. 
+\end{comment}
 
 
 \subsection{Robotic Manipulator}\label{manipulator}
@@ -161,11 +165,11 @@ and anchor the rail's modules to the ground.
 \subsection{Calibration}
  
 In hard coating \textit{in situ} operations, the relative position between the
-robotic manipulator and the blade is not fixed. The system calibration consists
-in the indentification of the manipulator and blade, and their pose estimation
-in respect to the turbine interior. Due to the light conditions inside the
-hydraulic circuit a 3D laser scanner is used to gather tridimensional
-information of the environment, including the robotic manipulator and base. 
+manipulator and the blade is not fixed. The system calibration consists in the
+indentification of the manipulator and blade, and their pose estimation in
+respect to the turbine interior. Due to the light conditions inside the
+hydraulic circuit a 3D laser scanner is used to gather 
+information of the environment, including the  manipulator and base.
 
 \begin{comment}
 The calibration process was divided in two different approach depending on the
@@ -186,9 +190,9 @@ cloud, it is assigned a collection of voxels on the discretized parametric
 space, corresponding to the possible spheres passing through that point. As in
 a voting process, the voxels with the greatest number of points assigned to
 define the parameters of the most probable spheres. There might be computational
-issues depending the size of the parameter space, but it can be mitigated by
-previous knowledge on the expected radius of the spheres and viable region for
-the robot inside the enviroment.
+issues depending on the size of the parameter space, but it can be mitigated by
+exploiting previous knowledge regarding the expected radius and viable region
+for the robot inside the enviroment.
 
 Fixing any marker on the blade would require its own calibration to ensure a
 consistent reference point, thus the pose estimation of the blade must rely only
@@ -207,16 +211,16 @@ introduce similiar information, creating ambiguous descriptors that degrade the
 matching perfomance, thus it is fundamental to wisely pick the interest points.
 The ambiguous descriptors provide information about perpendicular translation to
 the supporting plane, and the two rotations associated with it, thus no
-information about the other DOFs, making the alingment to ``slide'' from the
+information about the other DOFs, making the alignment to ``slide'' from the
 correct transformation. Therefore, the interest points were sampled to
 diversify the normal vectors' directions \cite{Rusinkiewicz2001}, allowing to
-reduce the number of samples to have a descriptor associated, when compared to a
-uniform sampling, and maintaning the computational cost low.
+reduction of the number of samples to have a descriptor associated, when
+compared to a uniform sampling, and maintaning the computational cost low.
 
 
 Once the descriptors were estimated, the correspondences are determined if the
-euclidean distance between a descriptor in the scene and model is lower than a
-threshold. Each correspondence vote for a specific pose and scale factor in the
+euclidean distance between a descriptor in the scene and in the model is lower
+than a threshold. Each correspondence vote for a specific pose and scale factor in the
 Hough space. After an instance of the model is found, it is performed the 
 Iterative Closest Point (ICP) matching with the full resolution point clouds to
 realize a fine alignment and compensate any discrepancy introduced by the
