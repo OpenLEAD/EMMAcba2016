@@ -158,13 +158,11 @@ and anchor the rail's modules to the ground.
 
 \subsection{Calibration}
  
-\begin{comment}
-The calibration process was divided in two different approach depending on the
+The calibration process was divided in two different approaches depending on the
 element to be localized and its caracteristics. The possibility to attach or
 install markers in known positions dictated the strategies to be chosen,
 therefore the calibration is separeted in the pose estimation of the robot and
 of the blade, as follows.
-\end{comment}
    
 The attachment of markers on the robotic manipulator can be performed with high
 precision and repeatability, thus reflective spheres were chosen as reference
@@ -217,7 +215,9 @@ realize a fine alignment and compensate any discrepancy introduced by the
 sampling. With the position of the blade and the manipulator in respect to a
 common coordinate system, i.e., the origin of the laser sensor, it is possible
 to determine the transformation between them and this information can be fed to
-the trajectory and coverage algorithms.
+the trajectory and coverage algorithms. It is important to note that in every
+step of the operation, in which either the manipulator base or the blade are
+moved, there is the need to recalibrate the system.
 
 
 
