@@ -7,22 +7,21 @@ solution for erosion, and creates a lamellar structure.
 
 The HVOF is a 2000~hp power process which consists of
 spraying coating particles by an 8~kg spray gun, through a flame with mixed
-hazardous gases. To achieve the best coating layer, the spray gun should be at
-a fixed 210~mm to 240~mm distance, and $90^\circ \pm 30^\circ$ angle, in respect
-to the metallic surface plane of the blade; the gun should move at 40~m/min
-speed along the path; and the coating step (nozzle's diameter) should be 3~mm
-for a regular full blade cover \cite{li2002effect}. The
-common solution which meets the requirements for \textit{ex situ} HVOF coating
-is a robotic manipulator with a blade-sized workspace in a fixed position.
+gases. To achieve the best coating layer, the spray gun should be at a fixed
+210~mm to 240~mm distance, and $90^\circ \pm 30^\circ$ angle, in respect to the
+metallic surface plane of the blade; and the gun should move at 40~m/min speed
+along the path \cite{li2002effect}.  Besides, for a regular coating cover, the
+trajectory is 3~mm spaced horizontal lines crossing the blade's surface (coating step), which requires great positional accuracy of the robot.
+The common solution which meets the requirements for \textit{ex situ} HVOF
+coating is a robotic manipulator with a blade-sized workspace in a fixed position.
 
 \section{The problem}\label{problem}
 
 The problem is to design a robotic system for \textit{in situ}
 hydropower runner's blades. Accessibility is a major problem: the robot must be
 brought to the turbine through a hatch; and it must operate in the confined,
-curved and slippery environment of the turbine at unfriendly atmospheric
-conditions. Besides, there are several control and calibration problems, as
-trajectory planning, and robot localization.
+curved, slippery and harsh environment of the turbine. Besides, there are
+several control and calibration problems, as trajectory planning, and robot localization.
 
 The mechanical challenges are robot locomotion, base stiffness, and
 fixation. The robot should be transported and positioned in turbine's

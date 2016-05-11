@@ -28,11 +28,8 @@ modular, and versatile.
 
 \subsection{Robotic Manipulator}\label{manipulator}
 The HVOF coating requirements and environment constraints demand a mid-sized
-robotic manipulator (Sec.~\ref{hvof}). The EMMA's manipulator will be responsible
-for the coating application and accuracy.
-
-A survey was conducted to determine the most adaptable off-the-shelf manipulator
-for the application. Overall simu\-lations and analysis were
+robotic manipulator (Sec.~\ref{hvof}). A survey was conducted to determine the
+most adaptable off-the-shelf manipulator for the application. Overall simu\-lations and analysis were
 performed using the OpenRave \cite{diankov2008openrave}, an environment for
 simulating motion planning algorithms for robotics. There are several tools for
 dynamics simulation of robots: Gazebo, V-Rep, Webots, and others%
@@ -42,27 +39,31 @@ and execution monitoring, the core functionality for kinematics operations and
 physics simulations, and the ROS support, simplifying future software
 integration.
 
-The simulations were performed for manipulator's workspace analysis, and maximum
-torque estimation. It involves runner's blade discretization, manipulator's base
-position computations for full cover, and robotic manipulator's kinematics and dynamics. 
+The simulations were performed to analyze the manipulator's work envelope in
+the turbine, the required positions for full blade coating, the
+manipulator's efforts (torque estimation), and to investigate possible
+collisions with mechanical parts. The simulations steps are runner's
+blade discretization, manipulator's base position computations for full cover,
+and robotic manipulator's kinematics and dynamics.
 
-The blade's surface discretization is an uniform sampling to
-determine where to the coating directions should be. The current approach is to
-take the bounding box of the blade and sample its surface uniformly. Once the
+The blade's surface discretization is an uniform sampling of the blade,
+determining the manipulator's end-effector directions. The current approach
+is to take the bounding box of the blade and sample its surface uniformly. Once the
 surface of the box is sampled, the intersection of the blade and a ray
 originating from each point going inward is taken. The normal of the blade's
-surface from each of these intersection points is taken to be the coating
+surface from each of these intersection points is taken to be the end-effector
 direction. As an uniform sampling of the box does not mean an uniform sampling
-of the blade, the box is oversampled and a 50~mm filter is applied, by a
-multidimensional search key with k-d tree. The samples are translated 230~mm in
-respect with their normal vectors, and collision with the environment are checked. 
+of the blade, the box is oversampled, the blade's samples taken, and a
+k-d tree was generated to remove more than 10~mm close samples (filtering). The
+resulting samples are translated 230~mm in respect with their normal vectors,
+and collisions with the environment are checked.
 
 Manipulator's base position computations are to uniformly sample the turbine's
-confined space and to calculate the required robotic manipulator's base
-positions to process all the samples (blade discretization),  considering angle
-and distance tolerances. It is a brute force search: for each position, inverse
-kinematics are computed to determine the robotic manipulator's joint parameters that provide
-the desired positions and orientations of the end-effector.
+confined space and to calculate the minimum required positions to process all
+the blade's samples, considering angle and distance tolerances of the process.
+It is a brute force search: for each position, inverse kinematics are computed
+to determine the manipulator's joint parameters that provide the desired
+positions and orientations of the end-effector.
 
 The kinematic approach described above is not enough to ensure that the robot
 will reach the samples. Maximum accelerations, decelerations,
@@ -75,8 +76,8 @@ $C$ is the Coriolis matrix, and $G$ is the gravity vector.
 
 $M$ was estimated by the robotic manipulator's CAD model. The angular
 accelerations are derived by differential kinematics:
-$\alpha=J^+(a-\dot{q}^TH\dot{q})$, where $H$ is the Hessian matrix
-\cite{hourtash2005kinematic}, $a=\ddot{X}$ is the linear accelerations, and $J$
+$\alpha=J^\dagger(\ddot{X}-\dot{q}^TH\dot{q})$, where $H$ is the Hessian matrix
+\cite{hourtash2005kinematic}, $\ddot{X}$ is the linear accelerations, and $J$
 is the Jacobian matrix. Therefore, torques can be analytically estimated with
 the inverse dynamics in OpenRave.
 

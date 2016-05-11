@@ -2,24 +2,37 @@
 %RENAN - 1 pag
 
 Hydropower has an important share in the global electricity production, and
-will continue to be a major source of renewable power-generation\footnote{International Energy
-Agency (2010), http://www.iea.org/.}% \cite{iea}.
-. Large hydropower projects have typically an ave\-rage maintenance cost of 2\%
-to 2.5\% of the investment cost per kW. A major maintenance concern
-is the state of the runner's blades, which suffer cavitation and abrasion
-phenomena. The erosion can lead to water flow instability, excessive vibrations
-and turbine efficiency reduction \cite{goldemberg2007energia}, thus hard
+will continue to be a major source of renewable
+power-generation\footnote{International Energy Agency (2010), http://www.iea.org/.}% \cite{iea}.
+. In hydropower generating plants, the average maintenance cost is 2\% of the
+investment cost per kW, and typically, the large mechanical
+components, as turbines, must be maintained and replaced every 25 years.
+The cavitation and abrasion phenomena on the turbine's blades have become a
+concern, as the erosion can lead to water flow instability, excessive
+vibrations and turbine efficiency reduction \cite{goldemberg2007energia}. Hard
 coating techniques by thermal aspersion are used to greatly increase the life
 cycle of runner's blades~\cite{krella2011new}.
 
-The use of robotics for \textit{in situ} maintenance, and repair operations in
-hydropower plants could greatly improve efficiency, safety, while
-decreasing operational and logistical costs~\cite{hazel2012field}. The working
-conditions on hydropower turbine installations are unfriendly: the atmospheric
-conditions, high temperatures and humidity, and constrained space are
-unfavorable to human operation (Fig.~\ref{fig::jirau_turb}). Also, some tasks,
-as the hard coating procedure, require a robotic system due to high precision, speed, and the
-usage of hazardous substances.
+In the specific case of Brazil, hydropower is the largest
+power-generation source. To support future economic growth, Brazil has
+invested in additional large hydroelectric facilities, for instance, the
+14~GW Belo Monte along the Xingu River\footnote{Energy
+Information Administration (2014), https://www.eia.gov/.}%~\cite{eia}
+, and Jirau dam (Fig.~\ref{fig::jirau_turb}) along the Madeira river. At the
+latter, the high concentration of suspended particles carried by the river intensifies the abrasion phenomena, thus
+regular maintenance is needed. Currently, blade coating maintenance in these
+large facilities is performed before turbine assembling by a large-sized
+robotic manipulator, i.e., it is an \textit{ex situ} process. 
+
+Repair maintenance, as grinding and welding, can be done manually in the
+turbine's environment, but the hard coating procedure requires a robotic system
+due to high precision, speed, and the usage of hazardous substances.
+There are several difficulties encountered when attempting to robotize
+\textit{in situ} maintenance, as accessibility, system placement and
+calibration. A few robotic systems have been investigated to perform \textit{in
+situ} repair of turbine runners, as it could greatly improve efficiency and
+safety, while decreasing operational and logistical
+costs~\cite{hazel2012field}, but none has been used for the hard coating operation. Some examples found in the literature are:
 
 \begin{figure}[h!]
 \centering
@@ -27,24 +40,6 @@ usage of hazardous substances.
 	\caption{Jirau's hydropower turbine.}
 	\label{fig::jirau_turb}
 \end{figure}
-
-In the specific case of Brazil, hydropower is the largest
-power-generation source. To support future economic growth, Brazil has
-invested in additional large hydroelectric facilities, for instance, the
-14~GW Belo Monte along the Xingu River\footnote{Energy
-Information Administration (2014), https://www.eia.gov/.}%~\cite{eia}
-, and Jirau dam
-along the Madeira river. At the latter, the high concentration of suspended
-particles carried by the river intensifies the abrasion phenomena, thus
-regular maintenance is needed. 
-
-Currently, blade coating maintenance in these large facilities is performed
-before turbine assembling by a large-sized robotic manipulator, i.e., it is an
-\textit{ex situ} process. \textit{In situ} maintenance would require robotic
-system transportation, locomotion, placement and calibration. The robotic
-systems for \textit{in situ} hydropower maintenance are typically used for
-repair tasks, such as inspection, welding, and grinding. Some examples found in
-the literature are:
 
 \begin{itemize}
 \item The Roboturb~\cite{roboturb} and the Scompi~\cite{scompi} are robotic
@@ -63,7 +58,7 @@ In this paper, we present a general overview of a robotic system called EMMA,
 and a detailed description of the mechanics, the manipulator, and
 calibration. The system performs \textit{in situ} hydropower
 runner's blade hard coating, and it is composed of an industrial manipulator
-that moves on customized rail bases, a 3D laser scanner for mapping, and
+that moves on customized rails, a 3D laser scanner for mapping, and
 sensors for positioning feedback.
 \begin{comment}
 The system operate in a confined space, move
