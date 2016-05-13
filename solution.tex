@@ -112,33 +112,40 @@ the inverse dynamics in OpenRave.
 \subsection{Mechanical system}
 % 0.75 pages
 
-EMMA's mechanical system is non-actuated rails for
-manipulator's base transportation, positioning and fixation. It comprises two
-rails, forming two prismatic joints (P). The first, or primary rail, is parallel to the turbine axis, and it is
-responsible for the transportation of the manipulator from hatch to close
-to the blade. The secondary rail is assembled from the first by a
-rotational joint (R), which allows to position the upper rail parallel to the blade's surface.
+EMMA's mechanical system is non-actuated rails for manipulator's base
+transportation, positioning and fixation. It comprises two rails, forming two
+prismatic joints (P). The first, or primary rail, is parallel to the turbine
+axis, and it is responsible for the transportation of the manipulator from
+hatch to close to the blade. The secondary rail is assembled from the first by
+a rotational joint (R), which allows to position the upper rail parallel to the
+blade's surface.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.9\columnwidth]{figs/mecanica/EMMA_Base_Secundaria_02.PNG}
+	\includegraphics[width=1.0\columnwidth]{figs/mecanica/EMMA_Base_Secundaria_03.PNG}
     \caption{Customized base: primary and secondary rails.}
     \label{fig:base}
 \end{figure}
 
-The hatch and turbine' space limit the size of the rail in terms of weight
+The hatch and turbine' space limits the size of the rail in terms of weight
 and geometry, thus a modular concept was adopted, such that the small modular
-parts can be easily and manually assembled inside the turbine. The rails are a
-modular two parallel profiled rail with a four carriage setup%  \cite{SKF_2013}
-. In this
-configuration, the reaction moments of the base are cancelled by a force couple provided by each couple of
-carriages. The commercial modules are aluminum structures for corrosion resistance,
-lightweight, geometric flexibility, and modularity, which make possible to
-modify the rail configuration by changing few parts or adding
+parts can be easily and manually assembled inside the turbine. The rails are
+formed by modules, such that each module contains all components
+necessary to support, transport and position the manipulator along its
+direction. Thus, it is possible to simply assemble modules in sequence to
+increase the prismatic joint overall length. 
+
+It was adopted a two parallel profiled rail system with a four carriage setup.
+%\cite{SKF_2013}.
+This configuration provides force couples wich eliminates the reaction
+moments in each carriage. The frame structure is formed by commercial
+structural aluminum profile. The main advantages regarding this choice are:
+corrosion resistance, lightweight, geometric flexibility, and modularity, which
+make possible to modify the rail configuration by changing few parts or adding
 anchor arms.
 
-The resulting rail is a slender and lightweight frame, thus a careful
-analysis is necessary to evaluate the structural integrity and rigidity in
+The resulting structure is a slender and lightweight frame, thus a
+careful analysis is necessary to evaluate the structural integrity and rigidity in
 respect to the dynamic loads of the manipulator. A Finite Element
 Analysis (FEA) was performed to evaluate the stresses, strains and resultant
 forces along the structure. FEA is also used to specify the frame components,
