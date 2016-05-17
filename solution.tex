@@ -66,19 +66,17 @@ to determine the manipulator's joint parameters that provide the desired
 positions and orientations of the end-effector.
 
 The kinematic approach described above is not enough to ensure that the robot
-will reach the samples. Maximum accelerations, decelerations,
-torques, and singularities should be investigated and compared to the
-manipulator's specifications. To do this, we employ the well know relation:
+will reach the samples. Maximum accelerations and torques should be investigated
+and compared to the manipulator's specifications. To do this, we employ the
+well know relation:
 $\tau = M(q)\ddot{q} + C(q,\dot{q})\dot{q} + G(q)$
 \cite{sciavicco2000differential}, where $\tau$ is the joints' torques, $M$ is
-the matrix of links' masses and moments of inertia, $q$ is the joints' angles,
-$C$ is the Coriolis matrix, and $G$ is the gravity vector.
-
-$M$ was estimated by the robotic manipulator's CAD model. The angular
-accelerations are derived by differential kinematics:
-$\alpha=J^\dagger(\ddot{X}-\dot{q}^TH\dot{q})$, where $H$ is the Hessian matrix
-\cite{hourtash2005kinematic}, $\ddot{X}$ is the linear accelerations, and $J$
-is the Jacobian matrix. Therefore, torques can be analytically estimated with
+the matrix of links' masses and moments of inertia estimated by manipulator's
+CAD model, $q$ is the joints' angles, $C$ is the Coriolis matrix, and $G$ is the
+gravity vector. The angular accelerations are derived by differential kinematics:
+$\ddot{q}=J^\dagger(\ddot{X}-\dot{q}^TH\dot{q})$, where $H$ is the Hessian
+matrix \cite{hourtash2005kinematic}, $\ddot{X}$ is the linear accelerations, and $J$
+is the Jacobian matrix. Therefore, torques can be analytically estimated by
 the inverse dynamics in OpenRave.
 
 % The typical path of HVOF coating is a zigzagging trajectory,
@@ -143,19 +141,16 @@ profile, since it is lightweight, corrosion resistant, geometrically flexible,
 and modular (easy rail reconfiguration by changing few parts or adding anchor
 arms).
 
-The resulting frame structure is slender and lightweight, thus a careful
-analysis is necessary to evaluate its integrity and stiffness in
-respect to the dynamic loads of the manipulator. A Finite Element Analysis
-(FEA) was performed to evaluate the stresses, strains and resultant forces
-along the structure. FEA is also used to specify the frame components, such as
-the profile's size, and anchors quantity, dimensions, directions, and
-attachment points to provide the greatest stiffness.
+The resulting frame structure is slender and lightweight, demanding careful
+dynamic analysis of its integrity and stiffness. A Finite Element Analysis (FEA)
+was performed to evaluate the stresses, strains and forces along the structure.
+FEA is also used to specify the frame components, such as the profile's size,
+and anchors quantity, dimensions, directions, and attachment points.
 
-The draft tube and runner area are conical shape structures, curved and
-sloped. The environment modification, as wielding and drilling, should be
-avoided, thus properly fixing the base on the ground is a major challenge in
-EMMA project. The draft tube is composed of a ferromagnetic steel material,
-hence magnetic fixtures is suitable for base attachment. 
+Since the draft tube and runner area are curved and sloped, properly fixing
+the mechanical base is a major challenge in EMMA. The draft tube is composed of a
+ferromagnetic steel material, hence magnetic fixtures is solution for
+base attachment without environment modifications, as welding.
 
 \begin{comment}
 Common magnetic fixture products are temporary magnetic equipments used to hoist
