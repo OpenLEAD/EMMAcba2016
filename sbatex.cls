@@ -242,11 +242,15 @@ Automa\c{c}\~{a}o em \today}
       \ifthenelse{\equal{#1}{-1}}
         { \stepcounter{author} }
         { \setcounter{author}{#1} }
-      \ifthenelse{\value{tmpauthor} = 0}
+      \ifthenelse{\equal{#3}{}}
         { }
-        { \addcontentsline{loa}{authors}{\hspace{-2ex}~,}
-          \addemail{, } }
-      \addemail{\ttfamily{#3}}
+        {
+          \ifthenelse{\value{tmpauthor} = 0}
+            { }
+            { \addcontentsline{loa}{authors}{\hspace{-2ex}~,}
+            \addemail{, } }
+          \addemail{\ttfamily{#3}}
+        }
       \addcontentsline{loa}{authors}{\scshape{#2}$^\fnsymbol{author}$}
       \ifthenelse{\equal{#1}{-1}}
         {}
@@ -267,17 +271,21 @@ Automa\c{c}\~{a}o em \today}
       \newpage
       \begin{center}
          {\bf \MakeUppercase \@title \par}
-         \vskip 2em                      % Vertical space after title.
-         \lineskip .5em
-         {\centering{\listofauthors} \par}
-         \vskip 6pt
-         {\centering{\listofaddresses} \par}
-         \vskip 3pt
-         {\centering{
-            \ifthenelse{\value{tmpauthor} = 0}
-              { Email: }
-              { Emails: }
-            \@eebuffer} \par}
+         \ifthenelse{\boolean{hideauthors}}
+           { }
+           {
+             \vskip 2em                      % Vertical space after title.
+             \lineskip .5em
+             {\centering{\listofauthors} \par}
+             \vskip 6pt
+             {\centering{\listofaddresses} \par}
+             \vskip 3pt
+             {\centering{
+                \ifthenelse{\value{tmpauthor} = 0}
+                  { Email: }
+                  { Emails: }
+                \@eebuffer} \par}
+           }
       \end{center}
       \vskip 1.5em \par
     }
@@ -345,6 +353,13 @@ Automa\c{c}\~{a}o em \today}
     \citationstyle{dcu}
     \bibliographystyle{dcu}
   }
+}
+
+\newboolean{hideauthors}
+\setboolean{hideauthors}{false}
+
+\DeclareOption{hideauthors}{
+    \setboolean{hideauthors}{true}
 }
 
 % Process all unknown options through article
