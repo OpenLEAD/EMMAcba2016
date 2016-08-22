@@ -2,7 +2,7 @@
 
 % 1 page
 %Renan: Results-Intro
-%TODO Gabriel: Results-Calibration
+%Gabriel: Results-Calibration
 %Estevão: Results-Mecanica
 %Renan: Results-Control
 
@@ -14,21 +14,26 @@ elements introduced in Sec.~\ref{solution}.
 
 \subsection{Robotic manipulator analysis}\label{sec::man_analysis}
 
+Few off-the-shelf mid-sized manipulators meet the hard coating requirements,
+i.e. accuracy, payload and velocity, and the environment constraints, e.g.
+base's dimension (800~mm) and lightweight. From the survey conducted, only 8 of
+the 201 analyzed manipulators of different manufacturers meet the requirements.
+Workspace analysis in the simulated environment showed that, among the 8
+manipulators, the Yaskawa Motoman MH12 robot has the largest work envelope, and
+is chosen for EMMA.
+
 As stated in Subsec.~\ref{manipulator}, simulations for the robotic
 manipulator were implemented with OpenRave, and consist of the following steps:
 blade's surface discretization; base position computation; kinematics
 and dynamics.
 
-A survey of off-the-shelf manipulators was conducted for
-Jirau's turbine. Regarding the runner's blade dimension, among the analyzed
-mid-sized robotic manipulators, the Yaskawa Motoman MH12 robot was chosen due to its satisfactory
-workspace, and versatility. Blade discretization is performed in a Jirau
-runner's blade CAD model, Fig.~\ref{fig:discretization} shows the blade's
-samples, and Fig.~\ref{fig:coating} shows the manipulator workspace, where
-black dots are coated points and blue dots are coated points with the angle
-tolerance. Thus it is possible to create a coating strategy and to select the
-simplest base positions. The result is the minimum required positions for the
-robotic manipulator's base.
+Blade discretization is performed in a Jirau runner's blade CAD model.
+Fig.~\ref{fig:discretization} shows the blade's samples, and
+Fig.~\ref{fig:coating} shows the manipulator workspace, where black dots are
+coated points and blue dots are coated points with the angle tolerance.
+Thus it is possible to create a coating strategy and to select the simplest base
+positions. The result is the minimum required positions for the robotic
+manipulator's base.
 
 \begin{figure}
 	\centering
@@ -40,11 +45,13 @@ robotic manipulator's base.
 	\caption{Blade discretization and manipulator workspace for a fixed position.}
 \end{figure}
 
-Comparing estimated torques with the technical specifications, dynamic
-simulations' results showed that the robotic manipulator should be placed at,
-at least, 1400~mm distance from the blade's surface plane. Placing the robot
-nearer would enhance the robotic manipulator's workspace, but it would increase
-also the torques. 
+For each sample, the inverse dynamics is computed with, and the estimated
+torques are compared to the robot's technical specification. Running
+the algorithm for several manipulator's base positions, dynamic simulations'
+results showed that the robot should be placed at, at least, 1000~mm distance
+from the blade's surface plane, to avoid reaching maximum torque.
+Placing the robot nearer would enhance the robotic manipulator's workspace, but
+it would increase also the torques.
 
 \begin{comment}
 The Fig.~\ref{fig:torques} is an example of the robotic
@@ -60,21 +67,22 @@ blue dots are large.
 \end{figure}
 \end{comment}
 
-Despite being able to coat approximately 50\% of the blade on a fixed
-position, kinematic and dynamic analysis show that the MH12 robot cannot fully
-cover it vertically or horizontally, demanding extra 2-DOF along the blade's
-surface. The base position computations reveal that the blade's top
-extremities require a specific base position, reachable
-with a primary rail between the blades. Therefore, the MH12 robot will require
-at least four positions along the blade and one position on a primary
-rail, between blades. 
+Despite being able to coat approximately 50\% of the blade on a fixed position,
+kinematic and dynamic analysis show that the MH12 robot cannot fully cover it
+vertically or horizontally. The base computations reveal that the
+blade's top extremities require a specific base position, reachable with the
+primary rail between the blades. Therefore, the MH12 robot will require at least
+four positions along the blade and one position on a primary rail, between
+blades.
 
 \subsection{Mechanical system analysis}
 
-In the specific case of Jirau, the secondary rail is customized with a third
-prismatic joint for height adjustment of the robotic manipulator. The primary
-and secondary rails with extra DOF guarantee the full coating, as they allow the
-robotic manipulator movement in the confined space by a 4-DOF base, PRPP joints.
+In the specific case of Jirau, %the secondary rail is customized with a third
+% prismatic joint for height adjustment of the robotic manipulator.
+the primary and secondary rails %with extra DOF 
+guarantee the full coating, as
+they allow the robotic manipulator movement in the confined space by a 3-DOF
+base, PRP joints.
 
 The FEA of the base verifies the Von Mises stress and the displacements
 along the structure's slender members. The stress analysis determines the
@@ -96,10 +104,11 @@ dynamic forces and moments are applied, as static loads, to the point that
 represents the origin of the robot's base.
 
 The maximum Von Mises stress was 4.16~MPa (Fig.~\ref{fig:von_mises}), which
-gives a factor of safety of 34.6. It was found for a particular case where the robotic manipulator is in
-the secondary rail, 800~mm from the rotational joint. The displacement of the
-structure causes a maximum translation of 0.47~mm and a angular deflection of
-$0.0149^{\circ}$ in respect to robotic manipulator base's coordinate system. 
+gives a factor of safety of 34.6. It was found for a particular case where the
+robotic manipulator is in the secondary rail, 800~mm from the rotational joint.
+The displacement of the structure causes a maximum translation of 0.47~mm and a
+angular deflection of $0.0149^{\circ}$ in respect to robotic manipulator base's
+coordinate system.
 
 The field tests conducted in the draft tube for the magnetic fixtures, at
 different equipment's orientations and places, confirmed the manufacturer's
@@ -127,7 +136,7 @@ specifications, and different scenes were generated for several sensor
 positions. The algorithm is able to localize the blade in respect to the
 sensor's coordinate system, even in occlusion generated by the presence of the
 robotic manipulator. In Fig.~\ref{fig:calibration}, it can be seen the
-correspondeces between the reference model and the scene, or the turbine
+correspondeces between the reference model and the scene, turbine
 environment, and also the correctly localized blade instance highlighted in red.
 
 \begin{figure}
@@ -153,8 +162,8 @@ point clouds.
 \end{figure}
 
 Similar procedure was followed to recreate a scene with four reference spheres
-(supposedly attached to the robot). The 3D Hough Method was able to locate all
-spheres' centers within a $5mm$ error (fig. \ref{fig:sphere_hough}).
+(supposedly attached to the robot). The 3D Hough method was able to locate all
+spheres' centers within a $5mm$ error (Fig. \ref{fig:sphere_hough}).
 
 \begin{figure}
 	\centering
