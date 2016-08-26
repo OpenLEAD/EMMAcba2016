@@ -116,7 +116,7 @@ transportation, positioning and fixation. It comprises two rails, forming two
 prismatic joints (P-P). The first rail is parallel to the
 turbine axis, and it is responsible for the transportation of the manipulator from
 hatch to close to the blade. The secondary rail is assembled from the first by
-a rotational joint (R), which allows to position the upper rail parallel to the
+a rotational joint (R), which allows positioning the upper rail parallel to the
 blade's surface.
 
 \begin{figure}
@@ -164,7 +164,7 @@ and anchor the rail's modules to the ground.
 \subsection{Calibration}
  
 The calibration process was divided in two different approaches depending on the
-element to be localized and its caracteristics: the pose estimation of the
+element to be localized and its characteristics: the pose estimation of the
 robot; and the blade.
    
 The attachment of markers on the manipulator can be performed with high
@@ -182,12 +182,12 @@ might be computational issues depending on the size of the parameter space, but
 it can be mitigated by exploiting previous knowledge regarding the expected
 radius and viable region for the robot inside the enviroment. Further
 improvements can be achieved through the use of the normal vector at each point,
-taking into accoun the fact that the center of the sphere is in the direction of
+taking into account the fact that the center of the sphere is in the direction of
 the normal vector, thus reducing the number of assigned voxels per point.
 
 Fixing any marker on the blade would require its own calibration to ensure a
 consistent reference point, thus the pose estimation of the blade must rely only
-on the intrinsec properties of its surface geometry. The information must be
+on the intrinsic properties of its surface geometry. The information must be
 extracted from the point cloud and compared to a reference model previously
 stored. The characteristics of the point clouds are represented by local
 descriptors, i.e., each interest point on the blade is associated with a piece
@@ -198,8 +198,8 @@ threshold, the blade is identified and the position can be determined
 \cite{Tombari2010a}.
 
 However, as the blade is a large and smooth surface, the neighborhood of each
-point may introduce similiar information, creating ambiguous descriptors that
-degrade the matching perfomance, thus it is fundamental to wisely pick the
+point may introduce similar information, creating ambiguous descriptors that
+degrade the matching performance, thus it is fundamental to wisely pick the
 interest points.
 The ambiguous descriptors provide information about perpendicular translation to
 the supporting plane, and the two rotations associated with it, thus no
