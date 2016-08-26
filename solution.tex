@@ -171,19 +171,19 @@ The attachment of markers on the manipulator can be performed with high
 precision and repeatability, thus reflective spheres were chosen as reference
 points in the process of robot localization. These spheres are identified inside
 the point cloud, the scene provided by the 3D laser sensor, using the 3D Hough
-Transform method \cite{camurri20143d}. The 3D Hough Transform, as the 2D method,
-is the search of an object on the (discretized) parametric space. A sphere has
-four parameters: three for the position of its center, and one for its radius.
+Transform method \cite{camurri20143d}. The 3D Hough Transform, as the 2D version
+of the method, is the search of an object in its (discretized) parameter space.
+A sphere has four parameters: three for the position of its center, and one for its radius.
 For each point on the point cloud, it is assigned a collection of voxels on the
-discretized parametric space, corresponding to the possible spheres passing
+discretized parameter space, corresponding to the possible spheres passing
 through that point. As in a voting process, the voxels with the greatest number
 of points assigned to define the parameters of the most probable spheres. There
 might be computational issues depending on the size of the parameter space, but
 it can be mitigated by exploiting previous knowledge regarding the expected
 radius and viable region for the robot inside the enviroment. Further
 improvements can be achieved through the use of the normal vector at each point,
-exploiting the fact that the center of the sphere is in the direction of the
-normal, thus reducing the number of assigned voxels per point.
+taking into accoun the fact that the center of the sphere is in the direction of
+the normal vector, thus reducing the number of assigned voxels per point.
 
 Fixing any marker on the blade would require its own calibration to ensure a
 consistent reference point, thus the pose estimation of the blade must rely only
